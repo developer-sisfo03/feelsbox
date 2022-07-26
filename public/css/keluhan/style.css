@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: #005F7D;
+    font-family: 'Inter', sans-serif;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.parent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 128px 128px;
+    background: url(img/waves.svg);
+    background-repeat: no-repeat;
+    background-position-y:bottom;
+}
+.container{
+    border-radius: 16px;
+    background: #fff;
+    width: 600px;
+    padding: 64px 48px 48px 48px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+}
+.bottom-page{
+    background: #fff;
+    height: 115px;
+    display: flex;
+    padding: 32px;
+
+}
+.container p{
+    font-size: 32px;
+}
+.container form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+.form-control{
+    max-width: 500px;
+    min-width: 500px;
+    max-height: 84px;
+    min-height: 84px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 16px;
+}
+.button-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.submitButton{
+    cursor: pointer;
+    padding: 12px 32px;
+    border: none;
+    background: #005F7D;
+    color: #fff;
+    border-radius: 8px;
+}
+.submitButton:hover{
+    transition: all 0.5s ease;
+    background: #6fddff;
+    color: black;
+}
+@media screen and (max-width : 601px) {
+    .wrap{
+        padding: 128px 0 0 0;
+    }
+    .parent{
+        display: flex;
+        flex-direction: row;
+        padding: 32px;
+    }
+    .container{
+        width: 100%;
+        padding: 32px;
+    }
+    .container form{
+        display: flex;
+        flex-direction: column;
+    }
+    .form-group{
+        display: flex;
+        width: 100%;
+    }
+    .container p{
+        font-size: 28px;
+    }
+    .form-control{
+        max-width: 500px;
+        min-width: 265px;
+        
+    }
+    .bottom-page{
+        height: 232px;
+    }
+}

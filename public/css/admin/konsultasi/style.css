@@ -1,0 +1,33 @@
+.booking{
+    margin: 50px auto;
+    width: 75%;
+    padding: 10px;
+    height: auto;
+    border-radius: 20px;
+    border: 2px solid rgb(148, 148, 148);
+}
+
+.garis{
+    border-bottom: 5px solid #000000 !important;
+}
+
+.waktu{
+    margin: 0 auto;
+    padding: 10px 50px;
+    width: fit-content;
+    background-color: #929292;
+    color: #ffffff;
+    border-radius: 30px;
+}
+
+.acc{
+    color: #005F7D;
+    border-radius: 10px;
+    background-color: #94DEFF;
+}
+
+.edit{
+    background-color: #005F7D;
+    color: #ffffff;
+    border-radius: 10px;
+}

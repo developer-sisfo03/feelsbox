@@ -1,0 +1,89 @@
+body{
+    background: #005F7D;
+}
+.parent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+.parent-wrapper{
+    border-radius: 16px;
+    padding: 32px;
+    background: #fff;
+    width: 40%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.tanggal-jam-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tanggal input {
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px 16px;
+    border: none;
+    background: rgb(241, 241, 241);
+}
+.jam input {
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px 16px;
+    border: none;
+    background: rgb(241, 241, 241);
+}
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.button button{
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #005F7D;
+    color: #fff;
+    cursor: pointer;
+}
+.button button:hover{
+    border: 1px solid #005F7D;
+    background: #fff;
+    color: #005F7D;
+    transition: all 0.5s ease;
+}
+@media screen and (max-width: 883px) {
+    .tanggal-jam-wrapper{
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+    }
+    .button{
+        display: flex;
+        flex-direction: row;
+
+    }
+    .parent-wrapper{
+        width: 60%;
+    }
+
+}
+@media screen and (max-width: 601px) {
+    .tanggal-jam-wrapper{
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+    }
+    .button{
+        display: flex;
+        flex-direction: row;
+
+    }
+    .parent-wrapper{
+        width: 75%;
+    }
+}

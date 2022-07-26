@@ -1,0 +1,62 @@
+body, html {
+    height: 100%;
+    margin-bottom: 20px;
+    background-color: #EDEDED
+}
+
+.title{
+    padding-top: 100px !important;
+    padding-bottom: 150px !important;
+    color: white;
+    font-size: 50px;
+
+}
+
+.top{
+    background-image: url('/img/tes-mental/vector.png');
+    width: 100%;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.col {
+    border-radius: 10px;
+    margin: auto;
+    width: 80%;
+    height: 280px;
+    padding: 10px;
+    background-color: white;
+}
+
+.questions{
+    padding-bottom: 20px;
+    padding-top: 50px;
+    margin-top: 300px;
+    background-color: white;
+}
+
+.question{
+    margin-bottom: 20px !important;
+    margin-top: 50px !important;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #007089;
+}
+
+.question-title{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+input[type=radio] {
+    width: 25px;
+    height: 25px;
+}
+
+label{
+    font-size: 25px;
+}

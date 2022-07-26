@@ -1,0 +1,47 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.wrapper h1{
+    color: #005F7D;
+    font-size: 24px;;
+}
+.child-wrapper{
+    padding: 16px;
+}
+.box{
+    padding: 16px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 16px;
+}
+.box p{
+    font-size: 14px;
+}
+.button-edit{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 32px;
+}
+.button-edit button{
+    padding: 8px 16px;
+    background: #ffffff;
+    border: 0.5px solid blue;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.button-edit button a{
+    text-decoration: none;
+
+}
+.button-edit button:hover{
+    transition: all 0.5s ease-in;
+    background: blue;
+    color: #ffffff;
+}
+@media screen and (max-width: 760px) {
+    .button-edit button{
+        width: 50%;
+    }
+}

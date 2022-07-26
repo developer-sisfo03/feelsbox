@@ -1,0 +1,50 @@
+
+.parent{
+    padding: 0 32px;
+}
+.title h3{
+    color: black;
+    font-weight: 700;
+    font-size: 48px;
+}
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+.form-edit{
+    display: flex;
+    column-gap: 32px;
+    
+}
+.form-edit label{
+    font-size: 18px;
+    font-weight: 600;
+    color: black;;
+}
+.form-edit input{
+    width: 90%;
+    padding: 8px 16px;
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+.button-section{
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.button-section button{
+    padding: 8px 16px;
+    border: none;
+    background: #005F7D;
+    color: #fff;
+    border-radius: 8px;
+}
+.button-section button:hover{
+    border: 1px solid #005F7D;
+    background: #fff;
+    color: #005F7D;
+    transition: all 0.5s ease;
+}

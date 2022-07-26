@@ -1,0 +1,30 @@
+.parent-wrapper{
+    padding: 0px 32px;
+    display: flex;
+    flex-direction: column;
+}
+.parent{
+   display: grid;
+   grid-template-columns: 10% 80% 10%;
+}
+.question-title{
+    color: black;
+    font-weight: 700;
+    padding-bottom: 32px;
+}
+.number{
+    font-size: 18px;
+    font-weight: 700;
+}
+.button{
+    background: #005F7D;
+    color: #fff;
+    border: none;
+    border-radius: 8px;;
+}
+.button:hover{
+    background: #fff;
+    color: #005F7D;
+    border: 0.5px solid #005F7D;
+    transition: all 0.5s ease;
+}
