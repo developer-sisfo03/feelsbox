@@ -13,10 +13,10 @@ class StorepsikologRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return Auth::check();
-    }
+    // public function authorize()
+    // {
+    //     return Auth::check();
+    // }
 
     /**
      * Get the validation rules that apply to the request.
