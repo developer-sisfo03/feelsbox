@@ -90,11 +90,6 @@
         </h5>
       </div>
       </form>
-      <button class="submit" name="submit" type="submit">
-        <a href="{{route('google.login')}}">
-          <h3>Login with Google</h3>
-        </a>
-      </button>
     </div>
     <script type="text/javascript" src="js/login.js"></script>
 </body>
