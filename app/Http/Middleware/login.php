@@ -16,15 +16,19 @@ class Login
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 'admin') {
-           return redirect('/admin');
-        }elseif (auth()->user()->role == 'user') {
-            return redirect('/user');
+        try
+        {
+            if (auth()->user()->role == 'admin') {
+                return redirect('/admin');
+             }elseif (auth()->user()->role == 'user') {
+                 return redirect('/user');
+             }
+             elseif (auth()->user()->role == 'psikolog') {
+                 return redirect('/psikolog');
+             }
         }
-        elseif (auth()->user()->role == 'psikolog') {
-            return redirect('/psikolog');
-        }
-        else{
+        catch (\Exception $e)
+        {
             return $next($request);
         }
     }
