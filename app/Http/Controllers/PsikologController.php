@@ -43,18 +43,6 @@ class PsikologController extends Controller
     public function store(StorepsikologRequest $request)
     {
         //
-        $date = $request['tanggal'];
-        $time = $request['jam'];
-        $psikologid = $request['id'];
-        
-        $jadwalPsikolog = new jadwalPsikolog;
-        $jadwalPsikolog->psikolog_id = $psikologid;
-        $jadwalPsikolog->tanggal = $date;
-        $jadwalPsikolog->jam = $time;
-        $jadwalPsikolog->save();
-        
-        return 'success';
-
     }
 
     /**
