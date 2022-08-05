@@ -72,6 +72,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/admin/google-calender', [GoogleCalenderController::class, 'index'])->name('google-calender');
 
         Route::resource('/admin/psikolog', PsikoLogController::class);
+
+        Route::get('/admin/psikolog/{id}/verifikasi', [PsikologController::class, 'verified']);
     });
     
     Route::group(['middleware' => 'user'], function () {
@@ -106,6 +108,10 @@ Route::group(['middleware' => 'auth'], function () {
         })->name('psikolog');
 
        Route::resource('/psikolog/jadwal', JadwalPsikologController::class);
+
+       Route::get('/psikolog/user', [PsikologController::class, 'user']);
+
+       Route::get('/psikolog/setting', [PsikologController::class, 'setting']);
     });
     
 });

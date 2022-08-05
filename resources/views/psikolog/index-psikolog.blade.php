@@ -54,7 +54,7 @@
     <body>
         <main id="main" class="main">
             <div class="pagetitle">
-                <h1>Hallo Admin Ren, Selamat Datang</h1>
+                <h1>Hallo {{auth()->user()->name}}, Selamat Datang</h1>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">

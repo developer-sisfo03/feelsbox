@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+// import  request
+use Illuminate\Http\Request;
 use App\Models\psikolog;
 use App\Http\Requests\StorepsikologRequest;
 use App\Http\Requests\UpdatepsikologRequest;
 use App\Models\jadwalPsikolog;
+use App\Models\User;
 
 class PsikologController extends Controller
 {
@@ -18,7 +20,6 @@ class PsikologController extends Controller
     {
         $psikolog = psikolog::with('user')->get();
         if(auth()->user()->role == 'admin'){
-            dd($psikolog);
             return view('admin.psikolog.index-psikolog-admin', compact('psikolog'));
         }else{
             return view('user.psikolog', compact('psikolog'));
@@ -89,6 +90,29 @@ class PsikologController extends Controller
     public function destroy(psikolog $psikolog)
     {
         //
+    }
+
+    public function verified($id)
+    {
+        $psikolog = psikolog::find($id);
+        $psikolog->verified = '1';
+        $psikolog->save();
+        return redirect()->back();
+    }
+
+    public function user()
+    {
+        $id  = auth()->user();
+        $user =  User::find($id)->first();
+        $psikolog = psikolog::where('user_id', $user->id)->first();
+        return view('psikolog.profile.index-profile-psikolog', compact('user', 'psikolog'));
+    }
+
+    public function setting(Request $request){
+        $id  = auth()->user();
+        $user =  User::find($id)->first();
+        $psikolog = psikolog::where('user_id', $user->id)->first();
+        return view('psikolog.profile.edit-profile-psikolog', compact('user', 'psikolog'));
     }
 
 }
