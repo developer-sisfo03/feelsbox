@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\jadwalPsikolog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\psikolog;
 
 class JadwalPsikologController extends Controller
 {
@@ -14,7 +16,10 @@ class JadwalPsikologController extends Controller
      */
     public function index()
     {
-        $jadwalPsikolog = jadwalPsikolog::all();
+        // 
+        $id = Auth::user()->id;
+        $psikolog = psikolog::where('user_id', $id)->first();
+        $jadwalPsikolog = jadwalPsikolog::where('psikolog_id', $psikolog->id)->get();
         return view('psikolog.jadwal.jadwal-psikolog', compact('jadwalPsikolog'));
     }
 
@@ -37,6 +42,17 @@ class JadwalPsikologController extends Controller
     public function store(Request $request)
     {
         //
+        $date = $request['tanggal'];
+        $time = $request['jam'];
+        $psikologid = $request['id'];
+        
+        $jadwalPsikolog = new jadwalPsikolog;
+        $jadwalPsikolog->psikolog_id = $psikologid;
+        $jadwalPsikolog->tanggal = $date;
+        $jadwalPsikolog->jam = $time;
+        $jadwalPsikolog->save();
+        
+        return 'success';
     }
 
     /**
@@ -79,13 +95,16 @@ class JadwalPsikologController extends Controller
      * @param  \App\Models\JadwalPsikolog  $jadwalPsikolog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JadwalPsikolog $jadwalPsikolog)
+    public function destroy(JadwalPsikolog $jadwalPsikolog, Request $request)
     {
         //
-        return 'teks';
+        // return 'teks';
         // delete data jadwalPsikolog by id
-        $jadwalPsikolog = jadwalPsikolog::where('id', $jadwalPsikolog->id)->get();
+        $id = $request['id'];
+        // return $id;
+        $jadwalPsikolog = jadwalPsikolog::where('id', $id);
+        // return $jadwalPsikolog;
         $jadwalPsikolog->delete();
-        return 'success';
+        return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
 }

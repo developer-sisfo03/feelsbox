@@ -107,7 +107,7 @@
    
    <head>
       <title>View Student Records</title>
-   </head>
+   </head> 
    
    <body>
       <table border = "1">
@@ -123,8 +123,10 @@
             <td>{{ $jadwal->tanggal }}</td>
             <td>{{ $jadwal->jam }}</td>
             <td>
-                <form href = "/psikolog/jadwal/{{ $jadwal->id }}" method="post">
+                <form action= "/psikolog/jadwal/{{ $jadwal->id }}" method="post">
                 @csrf
+                @method('delete')
+                <input type="hidden" name="id" value="{{ $jadwal->id }}">
                 <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
                 
