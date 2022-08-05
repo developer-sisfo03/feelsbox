@@ -18,7 +18,8 @@ class PsikologController extends Controller
     {
         $psikolog = psikolog::with('user')->get();
         if(auth()->user()->role == 'admin'){
-            return view('admin.psikolog.index', compact('psikolog'));
+            dd($psikolog);
+            return view('admin.psikolog.index-psikolog-admin', compact('psikolog'));
         }else{
             return view('user.psikolog', compact('psikolog'));
         }

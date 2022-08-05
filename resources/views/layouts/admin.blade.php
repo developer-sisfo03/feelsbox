@@ -278,6 +278,13 @@
                         <span>Soal Test</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/admin/psikolog">
+                        <i class="bi bi-question-square-fill"></i>
+                        <span>Psikolog</span>
+                    </a>
+                </li>
                 <!-- End Edit Quiz Page Nav -->
 
                 <li class="nav-item">
@@ -302,16 +309,6 @@
                         <span>Booking</span>
                     </a>
                 </li>
-
-                <!-- End Booking Page Nav -->
-
-                {{-- <li class="nav-item">
-                    <a class="nav-link collapsed" href="pages-login.html">
-                        <i class="bi bi-card-list"></i>
-                        <span>Schedule</span>
-                    </a>
-                </li> --}}
-                <!-- End Schedule Page Nav -->
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="/admin/keluhan">

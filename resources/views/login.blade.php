@@ -31,6 +31,12 @@
         <div class="right">
           <h1>Login</h1>
           <p>Please enter your username and password to continue</p>
+          {{-- show with success --}}
+          @if(session('error'))
+              <div class="alert alert-danger" role="alert">
+                  {{ session('error') }}
+              </div>
+          @endif
           <form class="text-center login" action="/login" method="post">
             @csrf
             <div class="input-icons">
@@ -71,9 +77,10 @@
                     <h5>Remember me</h5>
                 </div>
                 <h5>
-                Don't have an account?<span class="sign"
-                    ><a href="/"> Sign Up</a></span
-                >
+                Don't have an account?
+                <span class="sign">
+                  <a href="/register"> Sign Up</a>
+                </span>
                 </h5>
             </div>
           </div>

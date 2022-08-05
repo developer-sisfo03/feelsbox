@@ -21,22 +21,18 @@ class PsikologSeeder extends Seeder
         psikolog::create([
             'user_id' => 8,
             'slug' => 'walter-white',
-            'max' => 0
         ]);
         psikolog::create([
             'user_id' => 9,
             'slug' => 'sarah-jhonson',
-            'max' => 0
         ]);
         psikolog::create([
             'user_id' => 10,
             'slug' => 'william-anderson',
-            'max' => 1
         ]);
         psikolog::create([
             'user_id' => 11,
             'slug' => 'amanda-jepson',
-            'max' => 1
         ]);
     }
 }

@@ -71,6 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/admin/google-calender', [GoogleCalenderController::class, 'index'])->name('google-calender');
 
+        Route::resource('/admin/psikolog', PsikoLogController::class);
     });
     
     Route::group(['middleware' => 'user'], function () {

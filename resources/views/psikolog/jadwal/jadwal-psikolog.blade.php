@@ -123,9 +123,8 @@
             <td>{{ $jadwal->tanggal }}</td>
             <td>{{ $jadwal->jam }}</td>
             <td>
-                <form href = "/psikolog/jadwal/{{ $jadwal->id }}/delete" method="post">
+                <form href = "/psikolog/jadwal/{{ $jadwal->id }}" method="post">
                 @csrf
-                
                 <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
                 
