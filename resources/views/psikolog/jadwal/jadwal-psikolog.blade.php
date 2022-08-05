@@ -103,5 +103,37 @@
 </html>
 
 <script src="../../js/calendar.js"></script>
+<html>
+   
+   <head>
+      <title>View Student Records</title>
+   </head>
+   
+   <body>
+      <table border = "1">
+         <tr>
+            <td>ID</td>
+            <td>tangal</td>
+            <td>jam</td>
+            <td>edit</td>
+         </tr>
+         @foreach ($jadwalPsikolog as $jadwal)
+         <tr>
+            <td>{{ $jadwal->id }}</td>
+            <td>{{ $jadwal->tanggal }}</td>
+            <td>{{ $jadwal->jam }}</td>
+            <td>
+                <form href = "/psikolog/jadwal/{{ $jadwal->id }}/delete" method="post">
+                @csrf
+                
+                <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                
+            </td>
+         </tr>
+         @endforeach
+      </table>
+   </body>
+</html>
 @endsection
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JadwalPsikolog;
+use App\Models\jadwalPsikolog;
 use Illuminate\Http\Request;
 
 class JadwalPsikologController extends Controller
@@ -14,7 +14,8 @@ class JadwalPsikologController extends Controller
      */
     public function index()
     {
-        return view('psikolog.jadwal.jadwal-psikolog');
+        $jadwalPsikolog = jadwalPsikolog::all();
+        return view('psikolog.jadwal.jadwal-psikolog', compact('jadwalPsikolog'));
     }
 
     /**
@@ -81,5 +82,10 @@ class JadwalPsikologController extends Controller
     public function destroy(JadwalPsikolog $jadwalPsikolog)
     {
         //
+        return 'teks';
+        // delete data jadwalPsikolog by id
+        $jadwalPsikolog = jadwalPsikolog::where('id', $jadwalPsikolog->id)->get();
+        $jadwalPsikolog->delete();
+        return 'success';
     }
 }
