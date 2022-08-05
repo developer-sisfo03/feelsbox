@@ -33,15 +33,17 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Route::get('/token', function () {
-//     return csrf_token(); 
-// });
+Route::get('/token', function () {
+    return csrf_token(); 
+});
 
 Route::get('/login', [loginController::class, 'index'])->name('login')->middleware('login');
 Route::post('/login', [loginController::class, 'login'])->name('login');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
+Route::resource('/psikolog/jadwal', PsikologController::class);
+Route::get('/booking', [jadwalPsikologController::class, 'schedule'])->name('booking');
 
 // Route::get('/calender', [GoogleCalenderController::class, 'index'])->name('calender');
 

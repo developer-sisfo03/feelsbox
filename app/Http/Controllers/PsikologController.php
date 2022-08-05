@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\psikolog;
 use App\Http\Requests\StorepsikologRequest;
 use App\Http\Requests\UpdatepsikologRequest;
+use App\Models\jadwalPsikolog;
 
 class PsikologController extends Controller
 {
