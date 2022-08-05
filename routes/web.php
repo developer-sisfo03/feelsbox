@@ -14,7 +14,7 @@ use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\HasilTesController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\jadwalPsikologController;
+use App\Http\Controllers\JadwalPsikologController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ Route::get('/token', function () {
     return csrf_token(); 
 });
 
-Route::get('/login', [loginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/login', [loginController::class, 'index'])->name('login')->middleware('login');
 Route::post('/login', [loginController::class, 'login'])->name('login');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
@@ -97,6 +97,14 @@ Route::group(['middleware' => 'auth'], function () {
             return view('user.back-again');
         })->name('back-again');
 
+    });
+
+    Route::group(['middleware' => 'psikolog'], function () {
+        Route::get('/psikolog', function () {
+            return view('psikolog.index-psikolog');
+        })->name('psikolog');
+
+       Route::resource('/psikolog/jadwal', JadwalPsikologController::class);
     });
     
 });

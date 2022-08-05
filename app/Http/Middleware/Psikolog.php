@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Login
+class Psikolog
 {
     /**
      * Handle an incoming request.
@@ -16,20 +16,11 @@ class Login
      */
     public function handle(Request $request, Closure $next)
     {
-        try
-        {
-            if (auth()->user()->role == 'admin') {
-                return redirect('/admin');
-             }elseif (auth()->user()->role == 'user') {
-                 return redirect('/user');
-             }
-             elseif (auth()->user()->role == 'psikolog') {
-                 return redirect('/psikolog');
-             }
-        }
-        catch (\Exception $e)
-        {
+        if(auth()->user()->role == 'psikolog'){
             return $next($request);
+        }
+        else{
+            return redirect('/');
         }
     }
 }
