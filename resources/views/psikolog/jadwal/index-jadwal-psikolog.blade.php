@@ -8,7 +8,6 @@
    </head> 
    
    <body>
-   {{-- button tambah jadwal --}}
     <a href="/psikolog/jadwal/create" class="btn btn-primary">Tambah Jadwal</a>
     <br>
     <br>
@@ -21,7 +20,8 @@
          </tr>
          @php
             $nomor = 1;
-        @endphp
+         @endphp
+
          @foreach ($jadwalPsikolog as $jadwal)
          <tr>
             <td>{{ $nomor }}</td>
@@ -37,7 +37,6 @@
                 <input type="hidden" name="id" value="{{ $jadwal->id }}">
                 <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
-                
             </td>
          </tr>
          @endforeach

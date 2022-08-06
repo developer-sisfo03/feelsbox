@@ -15,6 +15,7 @@
             <p>{{$k->keluhan}}</p>
         </div>
         <button>X</button>
+    </div>
     @endforeach
     </div>
 </body>

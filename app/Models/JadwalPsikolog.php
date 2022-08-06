@@ -13,8 +13,8 @@ class jadwalPsikolog extends Model
         'id',
     ];
 
-    public function psikolog() 
+    public function user() 
     {
-        return $this->hasMany(psikolog::class);
+        return $this->belongsTo(User::class);
     }
 }

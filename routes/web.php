@@ -52,6 +52,11 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::group(['middleware' => 'auth'], function () {
 
+
+    // =============================================================================================================
+    // ============================================== admin =========================================================
+    // =============================================================================================================
+
     Route::group(['middleware' => 'admin'], function () {
 
         Route::get('/admin', function () {
@@ -76,10 +81,13 @@ Route::group(['middleware' => 'auth'], function () {
         
         Route::resource('/admin/psikolog', PsikoLogController::class);
 
-
         Route::get('/admin/psikolog/{id}/verifikasi', [PsikologController::class, 'verified']);
     });
     
+
+    // =============================================================================================================
+    // ============================================== user =========================================================
+    // =============================================================================================================
     Route::group(['middleware' => 'user'], function () {
         Route::get('/partnership', function () {
             return view('partnership');
@@ -100,12 +108,18 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::resource('/hasil-tes', HasilTesController::class);
 
+        Route::get('/jadwal-psikolog', [JadwalPsikologController::class, 'jadwal'])->name('jadwal-psikolog');
+
         Route::get('/back-again', function () {
             return view('user.back-again');
         })->name('back-again');
 
     });
 
+    // =============================================================================================================
+    // ============================================== psikolog =====================================================
+    // =============================================================================================================
+    
     Route::group(['middleware' => 'psikolog'], function () {
         Route::get('/psikolog', function () {
             return view('psikolog.index-psikolog');
@@ -117,7 +131,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/profile/edit', [ProfileController::class, 'edit']);
         Route::post('/profile/update', [ProfileController::class, 'update']);
 
-        Route::get('/jadwal-psikolog', [JadwalPsikologController::class, 'jadwal'])->name('jadwal-psikolog');
     });
     
 });
