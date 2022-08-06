@@ -10,9 +10,27 @@ composer install
 cp .env.example .env
 ```
 
-## create new branch
-### git checkout -b 'yourname/branch
-####  example:
-```cmd
-git checkout -b feature/backend
+## Hot reload
+-install dulu npm
+```
+npm install
+```
+-kemudian jalankan watch nya
+```
+npm run watch
+```
+
+## Jika Gambar tidak muncul
+```
+php artisan storage:link
+```
+
+## Migrate Database
+```
+php artisan migrate:fresh
+```
+
+## Seed Database
+```
+php artisan db:seed
 ```
