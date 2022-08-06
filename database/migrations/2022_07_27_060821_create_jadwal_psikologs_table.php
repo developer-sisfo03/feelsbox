@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('jadwal_psikologs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('psikolog_id');
+            $table->foreignId('user_id');
             $table->date('tanggal');
             $table->time('jam');
             $table->timestamps();
