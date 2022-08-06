@@ -1,17 +1,15 @@
-.parent-keluhan{
-    padding: 16px 64px; 
-    border: 1px rgb(171, 171, 171);
-    border-radius: 16px;
+.parent-wrapper{
     display: grid;
-    grid-template-columns: 1fr;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    column-gap: 32px;
+    row-gap: 32px;
 }
+
 .parent{
     display: grid;
     place-items: center;
     row-gap: 8px;
 }
-.parent-keluhan button{
+.parent-wrapper button{
     display: flex;
     position: absolute;
     padding: 8px 16px;
@@ -21,7 +19,7 @@
     color: #fff;
     background: rgb(255, 82, 82);
 }
-.parent-keluhan button:hover{
+.parent-wrapper button:hover{
     transition: all 0.2s ease-in;
     background: #fff;
     color:  rgb(255, 82, 82);
