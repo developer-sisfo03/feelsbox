@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('slug');
             $table->boolean('verified')->nullable();
-            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -100,19 +100,4 @@ class PsikologController extends Controller
         return redirect()->back();
     }
 
-    public function user()
-    {
-        $id  = auth()->user();
-        $user =  User::find($id)->first();
-        $psikolog = psikolog::where('user_id', $user->id)->first();
-        return view('psikolog.profile.index-profile-psikolog', compact('user', 'psikolog'));
-    }
-
-    public function setting(Request $request){
-        $id  = auth()->user();
-        $user =  User::find($id)->first();
-        $psikolog = psikolog::where('user_id', $user->id)->first();
-        return view('psikolog.profile.edit-profile-psikolog', compact('user', 'psikolog'));
-    }
-
 }

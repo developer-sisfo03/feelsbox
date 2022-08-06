@@ -2,8 +2,8 @@
 
 @section('content')
     <h1>Foto</h1>
-    @if ($psikolog->image != null)
-        <img width="50px" height="50px" src="{{asset('storage/profile'.$psikolog->image)}}" alt="">
+    @if ($user->image != null)
+        <img width="50px" height="50px" src="{{asset('storage/'.$user->image)}}" alt="">
     @else
         <img width="50px" height="50px"src="{{asset('storage/profile/default.png')}}" alt="">
     @endif
@@ -15,7 +15,7 @@
     <p>{{$user->jenis_kelamin}}</p>
     <h1>Domisili</h1>
     <p>{{$user->domisili}}</p>
-    <a href="/psikolog/setting">
+    <a href="/profile/edit">
         <button class="btn  btn-primary">Edit</button>
     </a>
 @endsection

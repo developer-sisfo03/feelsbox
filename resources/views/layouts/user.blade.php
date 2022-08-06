@@ -7,7 +7,7 @@
         <title>Dashboard - NiceAdmin Bootstrap Template</title>
         <meta content="" name="description" />
         <meta content="" name="keywords" />
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
         <!-- Favicons -->
         <link href="../../../../assets-admin/img/favicon.png" rel="icon" />
         <link href="../../../../assets-admin/img/apple-touch-icon.png" rel="apple-touch-icon" />

@@ -7,6 +7,7 @@
         <title>Dashboard - NiceAdmin Bootstrap Template</title>
         <meta content="" name="description" />
         <meta content="" name="keywords" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 
         <!-- Favicons -->
         <link href="../../../../assets-admin/img/favicon.png" rel="icon" />
@@ -89,7 +90,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/psikolog/user">
+                    <a class="nav-link collapsed" href="/profile">
                         <i class="bi bi-person"></i>
                         <span>Profile</span>
                     </a>

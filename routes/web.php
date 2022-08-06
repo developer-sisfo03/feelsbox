@@ -15,6 +15,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\HasilTesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalPsikologController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,11 +108,11 @@ Route::group(['middleware' => 'auth'], function () {
             return view('psikolog.index-psikolog');
         })->name('psikolog');
 
-       Route::resource('/psikolog/jadwal', JadwalPsikologController::class);
+        Route::resource('/psikolog/jadwal', JadwalPsikologController::class);
 
-       Route::get('/psikolog/user', [PsikologController::class, 'user']);
-
-       Route::get('/psikolog/setting', [PsikologController::class, 'setting']);
+        Route::get('/profile', [ProfileController::class, 'user'])->name('profile');
+        Route::get('/profile/edit', [ProfileController::class, 'edit']);
+        Route::post('/profile/update', [ProfileController::class, 'update']);
     });
     
 });

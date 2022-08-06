@@ -2,15 +2,14 @@
 
 @section('content')
 
-    <form action="psikolog/setting" method="post">
+    <form action="/profile/update" method="post" enctype="multipart/form-data">
         @csrf
-        {{-- foto --}}
         <div class="form-group">
             <label for="image">Gambar</label>
             <BR></BR>
-                <input type="hidden" name="oldImage" value={{$psikolog->image}}>
-                @if($psikolog->image != null)
-                    <img style="width: 100px; height: 100px;" class="preview img-fluid" src="{{ asset('storage/profile'.$psikolog->image) }}">
+                <input type="hidden" name="oldImage" value={{$user->image}}>
+                @if($user->image != null)
+                    <img style="width: 100px; height: 100px;" class="preview img-fluid" src="{{ asset('storage/'.$user->image) }}">
                 @else
                     <img style="width: 100px; height: 100px;" class="preview img-fluid" src="{{ asset('storage/profile/default.png') }}">
                 @endif
@@ -30,12 +29,19 @@
         </div>
         <div class="form-group">
             <label for="">Domisili</label>
-            <input type="text" class="form-control" name="domisili" value="{{$user->domisili}}">
+            
+            <select name="" id="domisili">
+            @if($user->domisili != null)
+                <option value="{{$user->domisili}}">{{$user->domisili}}</option>
+            @else
+            @endif
+            </select>
         </div>
         <div class="form-group">
             <label for="">Password</label>
             <input type="password" class="form-control" name="password">
         </div>
+        <input type="hidden" name="id" value="{{$user->id}}">
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
     <script>
@@ -57,6 +63,17 @@
                 image.src = '';
             }
         }
+    </script>
+
+    <script>
+        domisili = document.querySelector('#domisili');
+
+        axios.get('http://dev.farizdotid.com/api/daerahindonesia/provinsi').then(response => {
+            console.log(response.data.provinsi);
+            response.data.provinsi.forEach(provinsi => {
+                domisili.innerHTML += `<option value="${provinsi.nama}">${provinsi.nama}</option>`;
+            });
+        });
     </script>
 
 @endsection
