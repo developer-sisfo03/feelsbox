@@ -106,4 +106,9 @@ class JadwalPsikologController extends Controller
         return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
 
+    public function jadwal(Request $request){
+        // parameter get
+        $jadwal = jadwalPsikolog::with('user')->where('tanggal', $request->tanggal)->get();
+        return $jadwal;
+    }
 }
