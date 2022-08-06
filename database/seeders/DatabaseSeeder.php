@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PsikologSeeder::class);
         $this->call(TesMentalSeeder::class);
         $this->call(TestimoniSeeder::class);
+        $this->call(JadwalPsikologSeeder::class);
         
         User::factory()->create([
             'name' => 'Admin',

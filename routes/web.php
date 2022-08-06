@@ -16,6 +16,7 @@ use App\Http\Controllers\HasilTesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalPsikologController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\voucherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register')-
 Route::post('/register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
 Route::resource('/psikolog/jadwal', PsikologController::class);
 Route::get('/booking', [jadwalPsikologController::class, 'schedule'])->name('booking');
+Route::resource('/admin/voucher', VoucherController::class);
 
 // Route::get('/calender', [GoogleCalenderController::class, 'index'])->name('calender');
 
