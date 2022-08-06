@@ -72,7 +72,10 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/admin/google-calender', [GoogleCalenderController::class, 'index'])->name('google-calender');
 
+        Route::get('/admin/psikolog/verifikasi', [PsikoLogController::class, 'verifikasi']);
+        
         Route::resource('/admin/psikolog', PsikoLogController::class);
+
 
         Route::get('/admin/psikolog/{id}/verifikasi', [PsikologController::class, 'verified']);
     });

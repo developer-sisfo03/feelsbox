@@ -100,4 +100,9 @@ class PsikologController extends Controller
         return redirect()->back();
     }
 
+    public function verifikasi(){
+        $psikolog = psikolog::with('user')->get();
+        return view('admin.psikolog.verified-psikolog-admin', compact('psikolog'));
+    }
+
 }

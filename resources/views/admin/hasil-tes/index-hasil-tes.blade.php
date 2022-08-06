@@ -16,7 +16,11 @@
     @foreach ( $hasilTes as $hasil)
     <div class="parent">
         <div class="top">
-            <img src="../img/lakiBrewok.svg" alt="" srcset="" class="responsive">
+            @if($hasil->user->image != null)
+                <img src="{{$hasil->$user->image}}" alt="" srcset="" class="responsive">
+            @else
+                <img src="{{asset('storage/profile/default.png')}}" alt="" srcset="" class="responsive">
+            @endif
             <div class="user-info">
                 <p>{{$hasil->user->name}}</p>
                 <p>{{$hasil->user->email}}</p>

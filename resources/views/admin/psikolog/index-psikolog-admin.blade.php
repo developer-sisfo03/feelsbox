@@ -1,29 +1,34 @@
 @extends("layouts.admin")
 
 @section('content')
-<head>
-    <link rel="stylesheet" href="../css/adminPsikolog/style.css">
-</head>
-<body>
-   <div class="parent">
-    <table class="table">
-        <thead>
+    <a href="/admin/psikolog/verifikasi">Verifikasi Psikolog</a>
+    <table>
         <tr>
-            <th scope="col">
+            <th>
+                Gambar
+            </th>
+            <th>
                 Nama
             </th>
-            <th scope="col">
+            <th>
                 Email
             </th>
-            <th scope="col">
-                Verifikasi
+            <th>
+                Tanggal Lahir
+            </th>
+            <th>
+                Domisili
             </th>
         </tr>
-        </thead>
-        <tbody>
         @foreach($psikolog as $p)
-            @if($p->verified == 0)
+            @if($p->verified == 1)
                 <tr>
+                    <td>
+                        @if($p->gambar != null)
+                            <img src="{{asset('storage/'.$p->gambar)}}" width="100px" height="100px">
+                        @else
+                            <img src="{{asset('storage/profile/default.png')}}" width="100px" height="100px">
+                        @endif
                     <td>
                         {{$p->user->name}}
                     </td>
@@ -31,15 +36,13 @@
                         {{$p->user->email}}
                     </td>
                     <td>
-                        @if($p->verified == 0)
-                            <a href="/admin/psikolog/{{$p->id}}/verifikasi" class="btn btn-primary" style="font-size: 14px">Verifikasi</a>
-                        @endif
+                        {{$p->user->tanggal_lahir}}
+                    </td>
+                    <td>
+                        {{$p->user->domisili}}
                     </td>
                 </tr>
             @endif
         @endforeach
-        </tbody>
     </table>
-    </div>
-    </body>
 @endsection
