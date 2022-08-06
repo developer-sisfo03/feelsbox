@@ -10,6 +10,11 @@ composer install
 cp .env.example .env
 ```
 
+## Cara menjalankan Laravel
+```
+php artisan serve
+```
+
 ## Hot reload
 -install dulu npm
 ```
