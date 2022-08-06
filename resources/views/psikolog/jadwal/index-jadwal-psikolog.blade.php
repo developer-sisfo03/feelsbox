@@ -4,6 +4,7 @@
 <html>
    <head>
       <title>View Student Records</title>
+      <link href="../psikolog/"
    </head> 
    
    <body>
@@ -15,7 +16,7 @@
          <tr>
             <td>ID</td>
             <td>tangal</td>
-            <td>jam</td>
+            <td>time</td>
             <td>Delete</td>
          </tr>
          @php
