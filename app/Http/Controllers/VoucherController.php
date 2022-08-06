@@ -19,9 +19,9 @@ class VoucherController extends Controller
     {
         // 
         // $id = voucher::get()->sortBy('id')->first();
-        $id = voucher::all()->pluck('id')->first();
+        $id = voucher::all()->pluck('id');
+        return $id;
         $voucher = voucher::where('id', $id)->first();
-        // return $voucher;
         $now = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
         $duedate = Carbon::parse($voucher->masa_berlaku)->format('Y-m-d H:i:s');
 
