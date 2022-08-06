@@ -22,7 +22,15 @@ class PsikologController extends Controller
         if(auth()->user()->role == 'admin'){
             return view('admin.psikolog.index-psikolog-admin', compact('psikolog'));
         }else{
-            return view('user.psikolog', compact('psikolog'));
+            // dapatkan satu baris tanggal semua data dari tabel jadwal psikolog
+            $jadwalPsikolog = jadwalPsikolog::orderBy('tanggal', 'asc')->get();
+            
+            $tanggal = [];
+            foreach($jadwalPsikolog as $jadwal){
+                $tanggal[] = $jadwal->tanggal;
+            }
+
+            return view('user.appointment', compact('tanggal'));
         }
     }
 

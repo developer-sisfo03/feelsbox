@@ -61,7 +61,6 @@
         </div>
         <button>X</button>
     </div>
-
     @endforeach
 </body>
 

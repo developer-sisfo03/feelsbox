@@ -1,7 +1,7 @@
 @extends('layouts.psikolog')
 
 @section('content')
-
+    
     <form action="/psikolog/jadwal" method="post">
         @csrf
         <input type="hidden" name="psikolog_id" value="{{$id}}">
@@ -14,6 +14,8 @@
             <input type="time" class="form-control" id="jam" name="jam" placeholder="Jam" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <script src="js/appointment.js"></script>
+
     </form>
 
 @endsection
