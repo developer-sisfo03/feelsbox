@@ -19,8 +19,9 @@ class JadwalPsikologController extends Controller
         // 
         $id = Auth::user()->id;
         $psikolog = psikolog::where('user_id', $id)->first();
-        $jadwalPsikolog = jadwalPsikolog::where('psikolog_id', $psikolog->id)->get();
-        return view('psikolog.jadwal.jadwal-psikolog', compact('jadwalPsikolog'));
+        // temukan jadwal sesuai id dan urutkan sesuai tanggal
+        $jadwalPsikolog = jadwalPsikolog::where('psikolog_id', $psikolog->user_id)->orderBy('tanggal', 'asc')->get();
+        return view('psikolog.jadwal.index-jadwal-psikolog', compact('jadwalPsikolog'));
     }
 
     /**
@@ -29,8 +30,10 @@ class JadwalPsikologController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('psikolog.jadwal.create-jadwal-psikolog');
+    {   
+        $id = Auth::user()->id;
+        $psikolog = psikolog::where('user_id', $id)->first();
+        return view('psikolog.jadwal.create-jadwal-psikolog', compact('id'));
     }
 
     /**
@@ -41,18 +44,13 @@ class JadwalPsikologController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $date = $request['tanggal'];
-        $time = $request['jam'];
-        $psikologid = $request['id'];
-        
+
         $jadwalPsikolog = new jadwalPsikolog;
-        $jadwalPsikolog->psikolog_id = $psikologid;
-        $jadwalPsikolog->tanggal = $date;
-        $jadwalPsikolog->jam = $time;
+        $jadwalPsikolog->psikolog_id = $request->psikolog_id;
+        $jadwalPsikolog->tanggal = $request->tanggal;
+        $jadwalPsikolog->jam = $request->jam;
         $jadwalPsikolog->save();
-        
-        return 'success';
+        return redirect('/psikolog/jadwal')->with('success', 'Jadwal berhasil ditambahkan');
     }
 
     /**
@@ -107,4 +105,5 @@ class JadwalPsikologController extends Controller
         $jadwalPsikolog->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
+
 }

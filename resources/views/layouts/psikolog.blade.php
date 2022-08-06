@@ -95,9 +95,9 @@
                         <span>Profile</span>
                     </a>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/tes-mental">
+                    <a class="nav-link collapsed" href="/psikolog/jadwal">
                         <i class="bi bi-pencil-square"></i>
-                        <span>Tes Mental</span>
+                        <span>Jadwal</span>
                     </a>
                 </li>
                 <li class="nav-item">

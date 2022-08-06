@@ -113,6 +113,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/profile', [ProfileController::class, 'user'])->name('profile');
         Route::get('/profile/edit', [ProfileController::class, 'edit']);
         Route::post('/profile/update', [ProfileController::class, 'update']);
+
+        Route::get('/jadwal-psikolog', [JadwalPsikologController::class, 'jadwal'])->name('jadwal-psikolog');
     });
     
 });

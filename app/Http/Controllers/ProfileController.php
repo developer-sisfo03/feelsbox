@@ -25,7 +25,6 @@ class ProfileController extends Controller
         $user->update($request->all());
 
         if($request->hasFile('image')){
-            // hapus gambar lama
             if(isset($request->oldImage)){
                 $oldImage = $request->oldImage;
                 $path = public_path('storage/'.$oldImage);
