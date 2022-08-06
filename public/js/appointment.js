@@ -14,7 +14,6 @@ function jadwalPsikolog(tanggal){
             html += '<td>'+data[i].jam+'</td>';
             html += '</tr>';
         }
-        console.log(html);
         document.getElementById('hasil').innerHTML = html;
     });
 }
