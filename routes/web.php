@@ -46,21 +46,20 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register')-
 Route::post('/register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
 Route::resource('/psikolog/jadwal', PsikologController::class);
 Route::get('/booking', [jadwalPsikologController::class, 'schedule'])->name('booking');
-Route::resource('/admin/voucher', VoucherController::class);
 
 // Route::get('/calender', [GoogleCalenderController::class, 'index'])->name('calender');
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::group(['middleware' => 'auth'], function () {
-
-
+    
+    
     // =============================================================================================================
     // ============================================== admin =========================================================
     // =============================================================================================================
-
+    
     Route::group(['middleware' => 'admin'], function () {
-
+        
         Route::get('/admin', function () {
             return view('admin.index');
         })->name('admin');
@@ -68,14 +67,16 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/admin/landing-page', LandingPageController::class);
         
         Route::resource('/admin/partnership', PartnershipController::class);
-
+        
         Route::resource('/admin/test-mental', TesMentalController::class);
-
+        
         Route::resource('/admin/keluhan', KeluhanController::class);
-
+        
         Route::resource('/admin/konsultasi', KonsultasiController::class);
-
+        
         Route::resource('/admin/hasil-tes', HasilTesController::class);
+        
+        Route::resource('/admin/voucher', VoucherController::class);
 
         Route::get('/admin/google-calender', [GoogleCalenderController::class, 'index'])->name('google-calender');
 

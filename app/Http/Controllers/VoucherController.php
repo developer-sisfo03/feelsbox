@@ -17,8 +17,10 @@ class VoucherController extends Controller
      */
     public function index()
     {
-        // 
-        return $this->hapus();
+        // tampilkan halaman index 
+        $this->hapus();
+        $vouchers = voucher::all();
+        return view('admin.voucher.index-voucher', compact('vouchers'));
         // buat fungsi yang dapat menghapus semua voucher yang sudah lewat masa_berlaku
         
     }
@@ -30,7 +32,8 @@ class VoucherController extends Controller
      */
     public function create()
     {
-        //
+        // tampilkan halaman create-voucher.blade.php
+        return view('admin.voucher.create-voucher');
     }
 
     /**
@@ -51,7 +54,7 @@ class VoucherController extends Controller
         $voucher->kode = $kode;
         $voucher->masa_berlaku = $expired;
         $voucher->save();
-        return 'success';
+        return redirect()->route('voucher.index');
     }
 
     /**
@@ -94,9 +97,15 @@ class VoucherController extends Controller
      * @param  \App\Models\voucher  $voucher
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(UpdatevoucherRequest $request, voucher $voucher)
     {
         //
+        // $vouchers = voucher::all();
+        $id = $request['id'];
+        $voucher = voucher::where('id', $id)->first();
+        // return $voucher;
+        $voucher->delete();
+        return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
     public function hapus() {
         $voucher = voucher::all();
@@ -107,7 +116,7 @@ class VoucherController extends Controller
                 $vouchers->delete();
                 // return 'delete success';
             } else {
-                echo 'masih berlaku';
+                // echo 'masih berlaku';
             }
         }
         // return 'bisa';
