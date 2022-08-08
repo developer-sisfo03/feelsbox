@@ -279,7 +279,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/#psikolog">
+                    <a class="nav-link collapsed" href="/appointment">
                         <i class="bi bi-card-checklist"></i>
                         <span>Appointment</span>
                     </a>
