@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Http;
+
 use App\Models\psikolog;
 use Illuminate\Support\Str;
 
@@ -13,8 +15,9 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    public function register(Request $request){
-        
+    public function register(){
+        $countryCode = "62";
+
         $user = new User;
         $user->name = request('name');
         $user->email = request('email');
@@ -23,15 +26,22 @@ class RegisterController extends Controller
         $user->jenis_kelamin = request('jenis_kelamin');
         $user->tanggal_lahir = request('tanggal_lahir');
         $user->domisili = request('domisili');
+
+        $phone = preg_replace('/^0/', $countryCode, request('phone'));
+        $user->phone = $phone;
         $user->save();
-        if($request->role == 'psikolog'){
-            $user = User::where('email', request('email'))->first();
-            $psikolog = new psikolog;
-            $psikolog->user_id = $user->id;
-            $psikolog->slug = Str::slug(request('name'));
-            $psikolog->save();
+
+        try{
+            Http::post(env('LINK_WA').'welcome', [
+            'username' => $user->name,
+            'phone' => $user->phone,
+            ])->json();
+
+            return redirect('/login');
         }
-        return redirect('/login');
+        catch(\Exception $e){
+            return redirect('/register')->with('error', 'Gagal mendaftar');
+        }
     }
 
     // $user = new User;

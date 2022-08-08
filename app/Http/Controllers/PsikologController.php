@@ -26,8 +26,12 @@ class PsikologController extends Controller
             $jadwalPsikolog = jadwalPsikolog::orderBy('tanggal', 'asc')->get();
             
             $tanggal = [];
+            $tg = "";
             foreach($jadwalPsikolog as $jadwal){
-                $tanggal[] = $jadwal->tanggal;
+                $tg = $jadwal->tanggal;
+                if(!in_array($tg, $tanggal)){
+                    $tanggal[] = $tg;
+                }
             }
 
             return view('user.appointment', compact('tanggal'));
