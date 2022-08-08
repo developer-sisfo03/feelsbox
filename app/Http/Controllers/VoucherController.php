@@ -100,10 +100,8 @@ class VoucherController extends Controller
     public function destroy(UpdatevoucherRequest $request, voucher $voucher)
     {
         //
-        // $vouchers = voucher::all();
         $id = $request['id'];
         $voucher = voucher::where('id', $id)->first();
-        // return $voucher;
         $voucher->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
