@@ -18,19 +18,9 @@ class VoucherController extends Controller
     public function index()
     {
         // 
-        // $id = voucher::get()->sortBy('id')->first();
-        $id = voucher::all()->pluck('id');
-        return $id;
-        $voucher = voucher::where('id', $id)->first();
-        $now = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
-        $duedate = Carbon::parse($voucher->masa_berlaku)->format('Y-m-d H:i:s');
-
-        // if (Carbon::parse($now)->gt($duedate)) {
-        //     $voucher->delete();
-        //     return 'delete success';
-        // } else {
-        //     return 'waktu masih tersisa';
-        // }
+        return $this->hapus();
+        // buat fungsi yang dapat menghapus semua voucher yang sudah lewat masa_berlaku
+        
     }
 
     /**
@@ -104,16 +94,22 @@ class VoucherController extends Controller
      * @param  \App\Models\voucher  $voucher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(voucher $voucher)
+    public function destroy()
     {
         //
-        $voucher = voucher::find($id);
-        $now = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
-        $duedate = Carbon::parse($voucher->masa_berlaku)->format('Y-m-d H:i:s');
-
-        if (Carbon::parse($now)->gt($duedate)) {
-            $voucher->delete();
-            return 'delete success';
+    }
+    public function hapus() {
+        $voucher = voucher::all();
+        foreach ($voucher as $vouchers) {
+            $date = Carbon::parse($vouchers->masa_berlaku)->format('Y-m-d');
+            $now = Carbon::now('Asia/Jakarta')->format('Y-m-d');
+            if (Carbon::parse($now)->gt($date)) {
+                $vouchers->delete();
+                // return 'delete success';
+            } else {
+                echo 'masih berlaku';
+            }
         }
+        // return 'bisa';
     }
 }
