@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GoogleCalenderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TesMentalController;
@@ -45,7 +46,7 @@ Route::post('/login', [loginController::class, 'login'])->name('login');
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
 Route::resource('/psikolog/jadwal', PsikologController::class);
-Route::get('/booking', [jadwalPsikologController::class, 'schedule'])->name('booking');
+// Route::get('/booking', [jadwalPsikologController::class, 'schedule'])->name('booking');
 
 // Route::get('/calender', [GoogleCalenderController::class, 'index'])->name('calender');
 
@@ -108,6 +109,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::resource('/konsultasi', KonsultasiController::class);
         Route::resource('/appointment', PsikologController::class);
+
+        Route::post('/booking', [BookingController::class, 'booking'])->name('booking');
 
         Route::resource('/hasil-tes', HasilTesController::class);
 
