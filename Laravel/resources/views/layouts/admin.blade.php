@@ -304,7 +304,7 @@
                 <!-- End Edit Page Nav -->
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/admin/konsultasi">
+                    <a class="nav-link collapsed" href="/admin/booking">
                         <i class="bi bi-journal-check"></i>
                         <span>Booking</span>
                     </a>

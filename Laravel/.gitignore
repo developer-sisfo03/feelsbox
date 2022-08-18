@@ -10,6 +10,8 @@ yarn-error.log
 /.idea
 /.vscode
 
+storage/profile
+
 # Logs
 logs
 *.log

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class konsultasi extends Model
+class review extends Model
 {
     use HasFactory;
 
@@ -13,8 +13,13 @@ class konsultasi extends Model
         'id',
     ];
 
-    public function review()
+    public function konsultasi()
     {
-        return $this->hasMany(review::class);
+        return $this->belongsTo(konsultasi::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(user::class);
     }
 }

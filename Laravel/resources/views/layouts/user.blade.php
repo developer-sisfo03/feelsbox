@@ -267,6 +267,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="/profile">
+                        <i class="bi bi-person"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link collapsed" href="/tes-mental">
                         <i class="bi bi-pencil-square"></i>
                         <span>Tes Mental</span>
@@ -282,6 +288,12 @@
                     <a class="nav-link collapsed" href="/appointment">
                         <i class="bi bi-card-checklist"></i>
                         <span>Appointment</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/booking">
+                        <i class="bi bi-card-checklist"></i>
+                        <span>Booking</span>
                     </a>
                 </li>
                 <li class="nav-item">

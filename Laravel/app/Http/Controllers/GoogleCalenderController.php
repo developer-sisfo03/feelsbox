@@ -64,11 +64,11 @@ class GoogleCalenderController extends Controller
             ),
             'attendees' => array(
                 array(
-                    'email' => $konsultasi->user->email,
+                    'email' => $konsultasi->client_id->email,
                     'responseStatus' => 'accepted',
                 ),
                 array(
-                    'email' => $konsultasi->psikolog[0]->user->email,
+                    'email' => $konsultasi->psikolog_id->email,
                     'responseStatus' => 'accepted',
                 ),
             ),
@@ -95,6 +95,7 @@ class GoogleCalenderController extends Controller
         $dataKonsultasi->calendar_id = $event->id;
         $dataKonsultasi->link = $event->hangoutLink;
         $dataKonsultasi->update();
+        return $dataKonsultasi;
     }
 
     public function updateEvent($konsultasi){
