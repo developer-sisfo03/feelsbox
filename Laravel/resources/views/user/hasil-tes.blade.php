@@ -14,6 +14,7 @@
 
        <div class="parent-wrapper">
     @foreach ( $hasilTes as $hasil)
+    
     <div class="parent">
         <div class="top">
             <img src="../img/lakiBrewok.svg" alt="" srcset="" class="responsive">

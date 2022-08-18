@@ -41,7 +41,7 @@
         />
 
         <!-- Template Main CSS File -->
-        <link href="../../../../assets-admin/css/style.css" rel="stylesheet" />
+        <link href="../../../../assets-admin/css/style2.css" rel="stylesheet" />
         <style>
             .footer {
                 background-color: #f5f5f5;

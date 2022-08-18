@@ -370,7 +370,9 @@ body {
   .navbar-mobile .dropdown > .dropdown-active {
     display: block;
   }
-  
+  .content-wrapper{
+    padding: 20px;
+  }
   /*--------------------------------------------------------------
   # Hero Section
   --------------------------------------------------------------*/
