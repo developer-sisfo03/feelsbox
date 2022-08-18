@@ -45,7 +45,7 @@ class PsikologController extends Controller
      */
     public function create()
     {
-        //
+        r
     }
 
     /**
@@ -56,7 +56,7 @@ class PsikologController extends Controller
      */
     public function store(StorepsikologRequest $request)
     {
-        //
+        return "cek";
     }
 
     /**
