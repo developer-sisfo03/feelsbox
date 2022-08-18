@@ -1,9 +1,12 @@
+.parent-wrapper{
+    padding: 20px;
+}
 .parent{
     display: flex;
     flex-direction: column;
     row-gap: 5px;
     padding: 32px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .top{
     display: flex;
@@ -70,5 +73,8 @@
     }
     .responsive{
         max-width: 200px ;
+    }
+    .parent-wrapper{
+        padding: 40px;
     }
 }
