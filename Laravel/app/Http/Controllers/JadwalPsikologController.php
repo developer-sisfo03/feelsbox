@@ -46,7 +46,7 @@ class JadwalPsikologController extends Controller
     {
 
         $jadwalPsikolog = new jadwalPsikolog;
-        $jadwalPsikolog->psikolog_id = $request->psikolog_id;
+        $jadwalPsikolog->user_id = $request->psikolog_id;
         $jadwalPsikolog->tanggal = $request->tanggal;
         $jadwalPsikolog->jam = $request->jam;
         $jadwalPsikolog->save();
