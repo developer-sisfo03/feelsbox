@@ -45,7 +45,7 @@ class PsikologController extends Controller
      */
     public function create()
     {
-        r
+    
     }
 
     /**
