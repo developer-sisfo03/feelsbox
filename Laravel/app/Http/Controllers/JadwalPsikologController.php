@@ -20,7 +20,7 @@ class JadwalPsikologController extends Controller
         $id = Auth::user()->id;
         $psikolog = psikolog::where('user_id', $id)->first();
         // temukan jadwal sesuai id dan urutkan sesuai tanggal
-        $jadwalPsikolog = jadwalPsikolog::where('psikolog_id', $psikolog->user_id)->orderBy('tanggal', 'asc')->get();
+        $jadwalPsikolog = jadwalPsikolog::where('user_id', $psikolog->user_id)->orderBy('tanggal', 'asc')->get();
         return view('psikolog.jadwal.index-jadwal-psikolog', compact('jadwalPsikolog'));
     }
 
