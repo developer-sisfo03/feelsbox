@@ -19,6 +19,8 @@ use App\Http\Controllers\JadwalPsikologController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\voucherController;
 use App\Http\Controllers\IndexAdminController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +53,14 @@ Route::resource('/psikolog/jadwal', PsikologController::class);
 
 // Route::get('/calender', [GoogleCalenderController::class, 'index'])->name('calender');
 
+Route::post('/convert', [TransaksiController::class, 'convertImage'])->name('convert');
+
 Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/profile', [ProfileController::class, 'edit']);
+    Route::post('/profile/update', [ProfileController::class, 'update']);
+});
 
 Route::group(['middleware' => 'auth'], function () {
     
@@ -86,7 +95,11 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/admin/psikolog/{id}/verifikasi', [PsikologController::class, 'verified']);
 
-        Route::get('/admin/appointment', [BookingController::class, 'index'])->name('booking-transaksi');
+        Route::get('/admin/booking', [BookingController::class, 'index'])->name('booking-transaksi');
+
+        Route::get('/admin/booking/{id}/verifikasi', [BookingController::class, 'verifikasi'])->name('booking-verifikasi');
+        
+        Route::get('/admin/booking/{id}/delete', [BookingController::class, 'destroy'])->name('booking-delete');
     });
     
 
@@ -105,13 +118,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/tes-mental', TesMentalController::class);
         Route::resource('/keluhan', KeluhanController::class);
 
-        Route::get('/appointment/{slug}', [AppointmentController::class, 'index'])->name('appointment');
-        Route::post('/appointment/{slug}', [AppointmentController::class, 'booking'])->name('appointment');
+        Route::resource('/appointment', AppointmentController::class);
 
         Route::resource('/konsultasi', KonsultasiController::class);
-        Route::resource('/appointment', PsikologController::class);
+        Route::resource('/booking', PsikologController::class);
 
-        Route::post('/booking', [BookingController::class, 'booking'])->name('booking');
+        // Route::post('/booking', [BookingController::class, 'booking'])->name('booking');
 
         Route::resource('/hasil-tes', HasilTesController::class);
 
@@ -120,6 +132,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/back-again', function () {
             return view('user.back-again');
         })->name('back-again');
+
+        Route::get('/user/review', [ReviewController::class, 'index'])->name('review');
 
     });
 
@@ -134,10 +148,11 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::resource('/psikolog/jadwal', JadwalPsikologController::class);
 
-        Route::get('/profile', [ProfileController::class, 'user'])->name('profile');
-        Route::get('/profile/edit', [ProfileController::class, 'edit']);
-        Route::post('/profile/update', [ProfileController::class, 'update']);
-
+        Route::get('/psikolog/booking', [BookingController::class, 'index'])->name('booking');
+        Route::get('/psikolog/booking/{id}/verifikasi', [BookingController::class, 'verifikasi'])->name('booking-verifikasi');
+        Route::get('/psikolog/booking/{id}/delete', [BookingController::class, 'destroy'])->name('booking-delete');
+    
+        Route::resource('/psikolog/appointment', Appointment::class);
     });
     
 });

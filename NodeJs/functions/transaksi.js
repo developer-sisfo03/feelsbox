@@ -20,11 +20,11 @@ exports.transaksi = async (msg) => {
                     const media = await msg.downloadMedia();
                     const base64 = media.data;
                     const buffer = Buffer.from(base64, 'base64');
-                    let path = `storage/app/transaksi/${msg.from}-${Date.now()}.jpg`
+                    let path = `../Laravel/storage/app/transaksi/${msg.from}-${Date.now()}.jpg`
                     fs.writeFileSync(path, buffer);
                     msg.reply("terimakasih telah melakukan pembayaran admin akan segeram memproses pemesanan anda");
-                    // hilangkan /app pada variabel path
                     path = path.replace('/app', '');
+                    path = path.replace('../Laravel', '');
                     konsultasi.update({
                         status: 'admin',
                         bukti_pembayaran: path

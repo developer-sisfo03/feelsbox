@@ -34,7 +34,7 @@ class PsikologController extends Controller
                 }
             }
 
-            return view('user.appointment', compact('tanggal'));
+            return view('user.booking', compact('tanggal'));
         }
     }
 

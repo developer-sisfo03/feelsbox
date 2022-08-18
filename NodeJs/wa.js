@@ -34,8 +34,8 @@ client.on('message', async msg => {
                 transaksi(msg);
                 break;
 
-            default:
-                msg.reply('Masukan sesuai format yang ada');
+            // default:
+            //     msg.reply('Masukan sesuai format yang ada');
         }
 
     });

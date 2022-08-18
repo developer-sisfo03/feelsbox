@@ -104,6 +104,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Data Booking</h3>
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered table-striped">
@@ -128,8 +133,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                         <td>{{$b->waktu}}</td>
                                         <td><img class="myImg" width="50" src="../{{$b->bukti_pembayaran}}" alt=""/></td>
                                         <td>
-                                            <a href="/admin/appointment/{{$b->id}}/edit" class="btn btn-warning">Verifikasi</a>
-                                            <a href="/admin/appointment/{{$b->id}}/delete" class="btn btn-danger">Delete</a>
+                                            <a href="/admin/booking/{{$b->id}}/verifikasi" class="btn btn-warning">Verifikasi</a>
+                                            <a href="/admin/booking/{{$b->id}}/delete" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

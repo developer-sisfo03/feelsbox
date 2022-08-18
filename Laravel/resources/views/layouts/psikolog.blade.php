@@ -94,6 +94,7 @@
                         <i class="bi bi-person"></i>
                         <span>Profile</span>
                     </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="/psikolog/jadwal">
                         <i class="bi bi-pencil-square"></i>
@@ -107,7 +108,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/#psikolog">
+                    <a class="nav-link collapsed" href="/psikolog/booking">
+                        <i class="bi bi-card-checklist"></i>
+                        <span>Booking</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/psikolog/appointment">
                         <i class="bi bi-card-checklist"></i>
                         <span>Appointment</span>
                     </a>

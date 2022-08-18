@@ -25,10 +25,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call(KonsultasiSeeder::class);
         $this->call(LandingPageSeeder::class);
         $this->call(HasilTesSeeder::class);
         $this->call(KeluhanSeeder::class);
-        // $this->call(KonsultasiSeeder::class);
         $this->call(PsikologSeeder::class);
         $this->call(TesMentalSeeder::class);
         $this->call(TestimoniSeeder::class);

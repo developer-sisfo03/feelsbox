@@ -15,6 +15,7 @@ function jadwalPsikolog(tanggal){
             html += '<td>'+data[i].jam+'</td>';
             html += `<td>
                 <form id="pesan" action="/booking" method="POST">
+                    <input type="hidden" name="id_jadwal" value="${data[i].id}">
                     <input type="hidden" name="_token" value="${response.data.csrf_token}">
                     <input type="hidden" name="psikolog_id" value="${data[i].user.id}">
                     <input type="hidden" name="tanggal" value="${data[i].tanggal}">

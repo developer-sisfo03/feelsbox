@@ -1,31 +1,107 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use App\Models\konsultasi;
-use App\Models\psikolog;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    public function index(psikolog $slug)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        if($slug->max == 1){
-            return redirect('/appointment');
-        }
-        else{
-            $psikolog = $slug;
-            return view('user.appointment', compact('psikolog'));
+        $user = Auth::user();
+        $id = $user->id;
+        $role = $user->role;
+
+        if($role == 'psikolog'){
+            $booking = konsultasi::where('status', 'ongoing')->where('psikolog_id', $id)->get();
+            foreach($booking as $book){
+                $book->client_id = User::where('id', $book->client_id)->first();
+                $book->psikolog_id = User::where('id', $book->psikolog_id)->first();
+            }
+
+            return view('psikolog.appointment.index-psikolog-appointment', compact('booking'));
+
+        }elseif($role == 'user'){
+            $booking = konsultasi::where('client_id', $id)->get();
+            foreach($booking as $book){
+                $book->psikolog_id = User::where('id', $book->psikolog_id)->first();
+            }
+            return view('user.appointment.index-user-appointment', compact('booking'));
         }
     }
 
-    public function booking(Konsultasi $konsultasi, Request $request){
-        // dapatkan semua request lalu update ke database
-        $konsultasi->psikolog_id = $request->psikolog_id;
-        $konsultasi->user_id = $request->user_id;
-        $konsultasi->tanggal = $request->tanggal;
-        $konsultasi->waktu = $request->jam;
-        $konsultasi->save();
-        return redirect('/konsultasi');
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }
