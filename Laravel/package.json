@@ -1,0 +1,42 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production",
+        "start": "node ./bin/www"
+    },
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "cookie-parser": "~1.4.4",
+        "cors": "^2.8.5",
+        "debug": "~2.6.9",
+        "dotenv": "^16.0.1",
+        "express": "^4.16.4",
+        "express-validator": "^6.14.2",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "~1.9.1",
+        "mysql2": "^2.3.3",
+        "nodemailer": "^6.7.8",
+        "nodemon": "^2.0.19",
+        "qrcode-terminal": "^0.12.0",
+        "sequelize": "^6.21.3",
+        "whatsapp-web.js": "^1.17.1"
+    },
+    "devDependencies": {
+        "axios": "^0.25",
+        "browser-sync": "^2.27.10",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.4.16",
+        "sequelize-cli": "^6.4.1",
+        "webpack-cli": "^4.10.0",
+        "webpack-dev-middleware": "^5.3.3",
+        "webpack-hot-middleware": "^2.25.2"
+    }
+}
