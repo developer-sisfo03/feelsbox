@@ -38,16 +38,16 @@
                                         <img src="{{asset('storage/profile/default.png')}}" width="100px" height="100px">
                                     @endif
                                 <td>
-                                    {{$p->user->name}}
+                                    {{$p->name}}
                                 </td>
                                 <td>
-                                    {{$p->user->email}}
+                                    {{$p->email}}
                                 </td>
                                 <td>
-                                    {{$p->user->tanggal_lahir}}
+                                    {{$p->tanggal_lahir}}
                                 </td>
                                 <td>
-                                    {{$p->user->domisili}}
+                                    {{$p->domisili}}
                                 </td>
                             </tr>
                         @endif

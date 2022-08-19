@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Hash;
 
 use App\Models\psikolog;
 use Illuminate\Support\Str;
@@ -21,7 +22,7 @@ class RegisterController extends Controller
         $user = new User;
         $user->name = request('name');
         $user->email = request('email');
-        $user->password = bcrypt(request('password'));
+        $user->password = Hash::make(request('password'));
         $user->role = request('role');
         $user->jenis_kelamin = request('jenis_kelamin');
         $user->tanggal_lahir = request('tanggal_lahir');

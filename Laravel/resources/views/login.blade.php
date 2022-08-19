@@ -17,16 +17,28 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
+  <style>
+    #text-danger{
+      color: red !important;
+    }
+
+    .logo{
+      text-align: center;
+      width: 400px;
+    }
+  </style>
 
 </head>
 <body>
 <div class="parent">
       <div class="container">
         <div class="left">
-            <!-- <div class="header">
+            <div class="header">
                  <h1>Feelsbox | Mental Health</h1>
-            </div> -->
-          <img src="img/foto-login.svg" alt="" srcset="" class="responsive" />
+            </div>
+          <div class="logo">
+            <img src="img/logo.png" alt="" srcset="" class="responsive" />
+          </div>
         </div>
         <div class="right">
           <h1>Login</h1>
@@ -34,7 +46,7 @@
           {{-- show with success --}}
           @if(session('error'))
               <div class="alert alert-danger" role="alert">
-                  {{ session('error') }}
+                  <p id="text-danger">{{ session('error') }}</p>
               </div>
           @endif
           <form class="text-center login" action="/login" method="post">

@@ -58,7 +58,7 @@ Route::post('/convert', [TransaksiController::class, 'convertImage'])->name('con
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/profile', [ProfileController::class, 'edit']);
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile');
     Route::post('/profile/update', [ProfileController::class, 'update']);
 });
 
@@ -121,20 +121,20 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/appointment', AppointmentController::class);
 
         Route::resource('/konsultasi', KonsultasiController::class);
-        Route::resource('/booking', PsikologController::class);
 
-        // Route::post('/booking', [BookingController::class, 'booking'])->name('booking');
+        Route::post('/pesan', [BookingController::class, 'booking'])->name('booking');
 
         Route::resource('/hasil-tes', HasilTesController::class);
-
+        
         Route::get('/jadwal-psikolog', [JadwalPsikologController::class, 'jadwal'])->name('jadwal-psikolog');
-
+        
         Route::get('/back-again', function () {
             return view('user.back-again');
         })->name('back-again');
-
+        
         Route::get('/user/review', [ReviewController::class, 'index'])->name('review');
-
+        
+        Route::resource('/booking', PsikologController::class);
     });
 
     // =============================================================================================================

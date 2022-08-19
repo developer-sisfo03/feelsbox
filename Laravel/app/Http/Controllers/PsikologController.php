@@ -18,23 +18,24 @@ class PsikologController extends Controller
      */
     public function index()
     {
-        $psikolog = psikolog::with('user')->get();
+        
         if(auth()->user()->role == 'admin'){
+            $psikolog = User::where('verified', '1')->where('role', 'psikolog')->get();
             return view('admin.psikolog.index-psikolog-admin', compact('psikolog'));
         }else{
-            // dapatkan satu baris tanggal semua data dari tabel jadwal psikolog
             $jadwalPsikolog = jadwalPsikolog::orderBy('tanggal', 'asc')->get();
             
             $tanggal = [];
             $tg = "";
             foreach($jadwalPsikolog as $jadwal){
                 $tg = $jadwal->tanggal;
+                $tg = date('d F Y', strtotime($tg));
                 if(!in_array($tg, $tanggal)){
                     $tanggal[] = $tg;
                 }
             }
 
-            return view('user.booking', compact('tanggal'));
+            return view('booking', compact('tanggal'));
         }
     }
 
@@ -106,14 +107,14 @@ class PsikologController extends Controller
 
     public function verified($id)
     {
-        $psikolog = psikolog::find($id);
+        $psikolog = User::find($id);
         $psikolog->verified = '1';
         $psikolog->save();
         return redirect()->back();
     }
 
     public function verifikasi(){
-        $psikolog = psikolog::with('user')->get();
+        $psikolog = User::where('role', 'psikolog')->get();
         return view('admin.psikolog.verified-psikolog-admin', compact('psikolog'));
     }
 

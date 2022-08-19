@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -36,7 +37,7 @@ class ProfileController extends Controller
         }
 
         if($request->password != null){
-            $user->password = bcrypt($request->password);
+            $user->password = Hash::make($request->password);
         }else{
             $user->password = $user->password;
         }

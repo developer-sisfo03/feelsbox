@@ -25,10 +25,10 @@
             @if($p->verified == 0)
                 <tr>
                     <td>
-                        {{$p->user->name}}
+                        {{$p->name}}
                     </td>
                     <td>
-                        {{$p->user->email}}
+                        {{$p->email}}
                     </td>
                     <td>
                         @if($p->verified == 0)
