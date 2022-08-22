@@ -38,4 +38,19 @@ class ReviewController extends Controller
         return view('user.review', compact('reviews'));
     }
 
+    public function getReview(Request $request){
+        $review = Review::where('konsultasi_id', $request->id)->first();
+        return response()->json($review);
+    }
+
+    public function saveReview(Request $request){
+        $review = Review::where('konsultasi_id', $request->id)->first();
+        $review = new Review;
+        $review->konsultasi_id = $request->id;
+        $review->user_id = $request->user_id;
+        $review->review = $request->review;
+        $review->save();
+        return redirect()->back();
+    }
+
 }

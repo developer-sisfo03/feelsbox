@@ -13,14 +13,12 @@ class BookingController extends Controller
     public function index(){
         $booking = konsultasi::where('status', "admin")->get();
 
-        // rubah client_id menjadi username sesuai id
         foreach($booking as $book){
             $book->client_id = User::where('id', $book->client_id)->first();
             $book->psikolog_id = User::where('id', $book->psikolog_id)->first();
         }
 
-        return $booking;
-        return view('admin.appointment.index-admin-appointment', compact('booking'));
+        return view('admin.booking.index-admin-booking', compact('booking'));
     }
 
     public function booking(Request $request){

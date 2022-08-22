@@ -135,6 +135,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/user/review', [ReviewController::class, 'index'])->name('review');
         
         Route::resource('/booking', PsikologController::class);
+
+        Route::get('/data-review', [ReviewController::class, 'getReview']);
     });
 
     // =============================================================================================================
@@ -152,7 +154,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/psikolog/booking/{id}/verifikasi', [BookingController::class, 'verifikasi'])->name('booking-verifikasi');
         Route::get('/psikolog/booking/{id}/delete', [BookingController::class, 'destroy'])->name('booking-delete');
     
-        Route::resource('/psikolog/appointment', Appointment::class);
+        Route::resource('/psikolog/appointment', AppointmentController::class);
     });
     
 });

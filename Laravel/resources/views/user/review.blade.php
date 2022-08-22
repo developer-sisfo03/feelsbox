@@ -12,7 +12,7 @@
                 <p>Tanggal: {{$r->tanggal}}</p>
                 <p>Jam: {{$r->waktu}}</p>
                 @if($r->review->count() == 0)
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button onClick="review('{{$r->id}}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Review
                     </button>
                 @else
@@ -24,7 +24,12 @@
         @endforeach
     </div>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    </div>
+
+<script>
+    function review(id){
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" arial-modal="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -39,6 +44,7 @@
                     <button type="button" class="btn btn-primary">Save changes</button>
              </div>
         </div>
-    </div>
+    }
+</script>
 
 @endsection
