@@ -35,7 +35,7 @@ class AppointmentController extends Controller
             foreach($booking as $book){
                 $book->psikolog_id = User::where('id', $book->psikolog_id)->first();
             }
-            return view('user.appointment.index-user-appointment', compact('booking'));
+            return view('user.appointment-user', compact('booking'));
         }
     }
 
