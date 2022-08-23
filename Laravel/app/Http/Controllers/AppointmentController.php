@@ -28,7 +28,7 @@ class AppointmentController extends Controller
                 $book->psikolog_id = User::where('id', $book->psikolog_id)->first();
             }
 
-            return view('psikolog.appointment.index-psikolog-appointment', compact('booking'));
+            return view('psikolog.appointment-psikolog', compact('booking'));
 
         }elseif($role == 'user'){
             $booking = konsultasi::where('status', 'ongoing')->where('client_id', $id)->get();

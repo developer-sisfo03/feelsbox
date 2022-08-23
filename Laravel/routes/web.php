@@ -132,7 +132,9 @@ Route::group(['middleware' => 'auth'], function () {
             return view('user.back-again');
         })->name('back-again');
         
-        Route::get('/user/review', [ReviewController::class, 'index'])->name('review');
+        Route::get('/riwayat', [ReviewController::class, 'index'])->name('review');
+
+        Route::post('/review/{id}/save', [ReviewController::class, 'saveReview']);
         
         Route::resource('/booking', PsikologController::class);
 

@@ -14,6 +14,7 @@ class BookingController extends Controller
     public function index(){
         $booking = konsultasi::where('status', "admin")->get();
 
+        
         foreach($booking as $book){
             $book->client_id = User::where('id', $book->client_id)->first();
             $book->psikolog_id = User::where('id', $book->psikolog_id)->first();
