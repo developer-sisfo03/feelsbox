@@ -101,9 +101,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card" style="padding: 32px;">
                     <div class="card-header">
-                        <h3 class="card-title">Data Booking</h3>
+                        <h2 style="font-weight:bold; color:black;">Data Booking</h2>
                         @if (session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}

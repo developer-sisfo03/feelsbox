@@ -6,7 +6,7 @@
     </head>
     <body>
     <div class="parent">
-    <h2>Profile Settings</h2>
+    <h2 style="font-weight:bold;">Profile Settings</h2>
     <form action="/profile/update" method="post" enctype="multipart/form-data">
         @csrf
         <div class="wrapper">
