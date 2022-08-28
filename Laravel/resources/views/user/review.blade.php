@@ -3,26 +3,50 @@
 
     {{-- modal --}}
 
-
-    <div class="container">
-        @foreach($reviews as $r)
-            <div class="review">
-                <p>Id Pemesanan: {{$r->id_pemesanan}}</p>
-                <p>Nama Psikolog: {{$r->psikolog_id->name}}</p>
-                <p>Tanggal: {{$r->tanggal}}</p>
-                <p>Jam: {{$r->waktu}}</p>
-                @if($r->review->count() == 0)
-                    <button onClick="review('{{$r}}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Review
-                    </button>
-                @else
-                @foreach($r->review as $rev)
-                    <p>Review: {{$rev->review}}</p>
+    <head>
+        <link rel="stylesheet" href="../css/riwayat/style.css">
+    </head>
+    <body>
+        <div class="container" style="padding:32px;">
+            <div class="row card-section">
+                @foreach($reviews as $r) 
+                <div class="container card p-4">     
+                    <div class="row">
+                        <div class="col bold">
+                            <p>Pemesanan</p>
+                            <p>Nama Psikolog</p>
+                            <p>Tanggal</p>
+                            <p>Waktu</p>
+                            <p>Review</p>
+                        </div>   
+                        <div class="col" id="parenthes">
+                            <!-- <p>:</p>
+                            <p>:</p>
+                            <p>:</p>
+                            <p>:</p>
+                            <p>:</p> -->
+                            
+                        </div>
+                        <div class="col">
+                            <p>{{$r->id_pemesanan}}</p>
+                            <p>{{$r->psikolog_id->name}}</p>
+                            <p>{{$r->tanggal}}</p>
+                            <p>{{$r->waktu}}</p>
+                            <p>@if($r->review->count() == 0)
+                                <button onClick="review('{{$r}}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Review
+                                </button>
+                            @else
+                            @foreach($r->review as $rev)
+                                <p>{{$rev->review}}</p>
+                            @endforeach
+                            @endif</p>
+                        </div>
+                    </div>
+                </div> 
                 @endforeach
-                @endif
             </div>
-        @endforeach
-    </div>
+        </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -47,6 +71,8 @@
     </div>
 
 <script>
+
+
     function review(data){
         var data = JSON.parse(data);
         console.log(data);
@@ -66,5 +92,6 @@
         `;
     }
 </script>
+</body>
 
 @endsection

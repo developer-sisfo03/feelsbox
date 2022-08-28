@@ -1,0 +1,13 @@
+.card-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px ;
+}
+#parenthes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bold p{
+    font-weight: 800;
+}
