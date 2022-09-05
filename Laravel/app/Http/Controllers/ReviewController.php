@@ -18,7 +18,30 @@ class ReviewController extends Controller
     public function index()
     {
         // piloh konsultasi yang sudah melampaui tanggal dan waktu 
-        $konsultasi = Konsultasi::where('tanggal','<=' ,date('Y-m-d'))->with('review')->get();
+        $id = auth()->user()->id;
+        $konsultasi = Konsultasi::where('client_id', $id)->where('tanggal','<=' ,date('Y-m-d'))->where('status', 'ongoing')->with('review')->get();
+
+        $reviews = [];
+        foreach($konsultasi as $k) {
+            if($k->tanggal == date('Y-m-d') && $k->waktu >= date('H:i:s')) {
+                $review[] = $k;
+            }else if($k->tanggal < date('Y-m-d')) {
+                $reviews[] = $k;
+            }
+        }
+        
+        foreach($reviews as $r) {
+            $r->client_id = User::where('id', $r->client_id)->first();
+            $r->psikolog_id = User::where('id', $r->psikolog_id)->first();
+        }
+        
+        
+        return view('user.review', compact('reviews'));
+    }
+    public function showReview()
+    {
+        $id = auth()->user()->id;
+        $konsultasi = Konsultasi::where('psikolog_id', $id)->where('status', 'ongoing')->with('review')->get();
 
         $reviews = [];
         foreach($konsultasi as $k) {
@@ -33,10 +56,10 @@ class ReviewController extends Controller
             $r->client_id = User::where('id', $r->client_id)->first();
             $r->psikolog_id = User::where('id', $r->psikolog_id)->first();
         }
-
-
-        return view('user.review', compact('reviews'));
+        
+        return view('psikolog.review-psikolog', compact('reviews'));
     }
+
 
     public function getReview(Request $request){
         $review = Review::where('konsultasi_id', $request->id)->first();
@@ -52,5 +75,6 @@ class ReviewController extends Controller
         $review->save();
         return redirect()->back();
     }
+
 
 }
