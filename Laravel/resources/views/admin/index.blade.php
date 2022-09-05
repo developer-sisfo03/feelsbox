@@ -150,9 +150,9 @@
                                             <span class="badge bg-warning">
                                                 Verifikasi Pembayaran
                                             </span>
-                                            @elseif ($k->status == "psikolog")
+                                            @elseif ($k->status == "onggoing")
                                             <span class="badge bg-warning">
-                                                Belum di verifikasi Psikolog
+                                                Sedang berlangsung
                                             </span>
                                             @endif
                                         </td>

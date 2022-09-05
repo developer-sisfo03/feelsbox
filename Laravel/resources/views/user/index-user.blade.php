@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Welcome di Website Feelsbox</h1>
 </body>
 </html>
 @endsection

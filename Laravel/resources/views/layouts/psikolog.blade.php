@@ -102,12 +102,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/hasil-tes">
-                        <i class="bi bi-card-checklist"></i>
-                        <span>Hasil Tes</span>
-                    </a>
-                </li
-                <li class="nav-item">
                     <a class="nav-link collapsed" href="/psikolog/appointment">
                         <i class="bi bi-card-checklist"></i>
                         <span>Appointment</span>

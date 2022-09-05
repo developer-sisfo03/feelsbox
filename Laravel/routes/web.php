@@ -21,6 +21,7 @@ use App\Http\Controllers\voucherController;
 use App\Http\Controllers\IndexAdminController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Middleware\Psikolog;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,8 @@ use App\Http\Controllers\ReviewController;
 Route::get('auth/google', [GoogleController::class, 'redirect'])->name('google.login')->middleware('guest');
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
 
+Route::resource('/booking', PsikologController::class);
+Route::get('/jadwal-psikolog', [JadwalPsikologController::class, 'jadwal'])->name('jadwal-psikolog');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -125,9 +128,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/pesan', [BookingController::class, 'booking'])->name('booking');
 
         Route::resource('/hasil-tes', HasilTesController::class);
-        
-        Route::get('/jadwal-psikolog', [JadwalPsikologController::class, 'jadwal'])->name('jadwal-psikolog');
-        
+                
         Route::get('/back-again', function () {
             return view('user.back-again');
         })->name('back-again');
@@ -136,8 +137,6 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::post('/review/{id}/save', [ReviewController::class, 'saveReview']);
         
-        Route::resource('/booking', PsikologController::class);
-
         Route::get('/data-review', [ReviewController::class, 'getReview']);
     });
 
@@ -146,9 +145,7 @@ Route::group(['middleware' => 'auth'], function () {
     // =============================================================================================================
     
     Route::group(['middleware' => 'psikolog'], function () {
-        Route::get('/psikolog', function () {
-            return view('psikolog.index-psikolog');
-        })->name('psikolog');
+        Route::get('/psikolog', [PsikologController::class, 'home'])->name('psikolog');
 
         Route::resource('/psikolog/jadwal', JadwalPsikologController::class);
 

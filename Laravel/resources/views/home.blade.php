@@ -51,8 +51,8 @@
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     <li><a class="nav-link scrollto" href="home.blade.php">Home</a></li>
-                    <li><a class="nav-link scrollto" href="test.html">Test</a></li>
-                    <li><a class="nav-link scrollto" href="">Make an Appointment</a></li>
+                    <li><a class="nav-link scrollto" href="/tes-mental">Test</a></li>
+                    <li><a class="nav-link scrollto" href="/booking">Make an Appointment</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -67,7 +67,7 @@
                     <h2>Welcome to <span>Medicio</span></h2>
                     <p>Kami disini hadir untuk membantu kalian semua untuk menjaga kesehatan mental kalian. Ingin tahu
                         kesehatan mental kamu saat ini ?</p>
-                    <a href="#test" class="btn-get-started scrollto">Lakukan Test</a>
+                    <a href="/tes-mental" class="btn-get-started scrollto">Lakukan Test</a>
                 </div>
             </div>
         </section><!-- End Hero -->
