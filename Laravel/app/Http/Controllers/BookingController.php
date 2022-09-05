@@ -53,7 +53,7 @@ class BookingController extends Controller
             'phone' => $user->phone,
         ])->json();
 
-        return view('user.success-booking');
+        return view('user.success-booking', compact('id_pemesanan'));
 
     }
 

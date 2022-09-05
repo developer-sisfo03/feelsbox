@@ -13,7 +13,7 @@
         <div class="text-center card p-5 success-content">
             <div class="window1">
               <img src="img/success.svg" class="img-fluid">
-              <h1>Pesanan <span class="">ID : XXXXX</span> diproses!</h1>
+              <h1>Pesanan <span class="">ID : {{ $id_pemesanan }}</span> diproses!</h1>
             </div>
             <a href="#tutor">
                 <button class="btn btn-primary">Panduan Verifikasi</button>
