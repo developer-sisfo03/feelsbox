@@ -103,6 +103,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/admin/booking/{id}/verifikasi', [BookingController::class, 'verifikasi'])->name('booking-verifikasi');
         
         Route::get('/admin/booking/{id}/delete', [BookingController::class, 'destroy'])->name('booking-delete');
+
+        Route::get('admin/review', [ReviewController::class, 'showReviewForAdmin'])->name('review-psikolog');
     });
     
 
@@ -152,6 +154,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/psikolog/booking', [BookingController::class, 'index'])->name('booking');
         Route::get('/psikolog/booking/{id}/verifikasi', [BookingController::class, 'verifikasi'])->name('booking-verifikasi');
         Route::get('/psikolog/booking/{id}/delete', [BookingController::class, 'destroy'])->name('booking-delete');
+        Route::get('psikolog/review', [ReviewController::class, 'showReview'])->name('review-psikolog');
     
         Route::resource('/psikolog/appointment', AppointmentController::class);
     });

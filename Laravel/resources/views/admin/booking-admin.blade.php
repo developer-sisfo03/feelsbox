@@ -131,7 +131,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                         <td>{{$b->psikolog_id->name}}</td>
                                         <td>{{$b->tanggal}}</td>
                                         <td>{{$b->waktu}}</td>
-                                        <td><img class="myImg" width="50" src="../{{$b->bukti_pembayaran}}" alt=""/></td>
+                                        <td><img class="myImg" width="50" src="..{{$b->bukti_pembayaran}}" alt=""/></td>
                                         <td>
                                             <a href="/admin/booking/{{$b->id_pemesanan}}/verifikasi" class="btn btn-warning">Verifikasi</a>
                                             <a href="/admin/booking/{{$b->id_pemesanan}}/delete" class="btn btn-danger">Delete</a>

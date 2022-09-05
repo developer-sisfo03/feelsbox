@@ -297,6 +297,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="/riwayat">
+                        <i class="bi bi-card-checklist"></i>
+                        <span>Riwayat</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link collapsed" href="/logout">
                         <i class="bi bi-box-arrow-left"></i>
                         <span>Logout</span>

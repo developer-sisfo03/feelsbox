@@ -18,7 +18,8 @@ class ReviewController extends Controller
     public function index()
     {
         // piloh konsultasi yang sudah melampaui tanggal dan waktu 
-        $konsultasi = Konsultasi::where('tanggal','<=' ,date('Y-m-d'))->with('review')->get();
+        $id = auth()->user()->id;
+        $konsultasi = Konsultasi::where('client_id', $id)->where('tanggal','<=' ,date('Y-m-d'))->where('status', 'ongoing')->with('review')->get();
 
         $reviews = [];
         foreach($konsultasi as $k) {
@@ -28,14 +29,50 @@ class ReviewController extends Controller
                 $reviews[] = $k;
             }
         }
-
+        
         foreach($reviews as $r) {
             $r->client_id = User::where('id', $r->client_id)->first();
             $r->psikolog_id = User::where('id', $r->psikolog_id)->first();
         }
-
-
+        
+        
         return view('user.review', compact('reviews'));
+    }
+    public function showReview()
+    {
+        $id = auth()->user()->id;
+        $reviews = Konsultasi::where('psikolog_id', $id)->where('status', 'ongoing')->with('review')->get();
+
+        $datas = [];
+
+        foreach($reviews as $r) {
+            $r->client_id = User::where('id', $r->client_id)->first();
+            $r->psikolog_id = User::where('id', $r->psikolog_id)->first();
+
+           if($r->review->isNotEmpty()) {
+                $datas[] = $r;
+           }
+        }
+        // return $datas;
+        return view('psikolog.review-psikolog', compact('datas'));
+    }
+
+    public function showReviewForAdmin()
+    {
+        $reviews = Konsultasi::where('status', 'ongoing')->with('review')->get();
+
+        $datas = [];
+
+        foreach($reviews as $r) {
+            $r->client_id = User::where('id', $r->client_id)->first();
+            $r->psikolog_id = User::where('id', $r->psikolog_id)->first();
+
+           if($r->review->isNotEmpty()) {
+                $datas[] = $r;
+           }
+        }
+        // return $datas;
+        return view('admin.review-admin', compact('datas'));
     }
 
     public function getReview(Request $request){
@@ -52,5 +89,6 @@ class ReviewController extends Controller
         $review->save();
         return redirect()->back();
     }
+
 
 }
