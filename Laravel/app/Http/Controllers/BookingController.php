@@ -69,7 +69,7 @@ class BookingController extends Controller
         $calender->createEvent($konsultasi[0]);
 
         $konsultasi = konsultasi::where('id_pemesanan', $request->id)->first();
-        $konsultasi->status = 'ongoing';
+        $konsultasi->status = 'onggoing';
         $konsultasi->save();
 
         $user = User::where('id', $konsultasi->client_id)->first();
