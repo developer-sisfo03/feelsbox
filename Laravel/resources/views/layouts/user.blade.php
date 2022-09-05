@@ -68,7 +68,7 @@
         <!-- ======= Header ======= -->
         <header id="header" class="header fixed-top d-flex align-items-center">
             <div class="d-flex align-items-center justify-content-between">
-                <a href="index.html" class="logo d-flex align-items-center">
+                <a href="/" class="logo d-flex align-items-center">
                     <img src="../../../../assets-admin/img/logo.png" alt="" />
                     <span class="d-none d-lg-block">Feelsbox</span>
                 </a>
@@ -300,6 +300,12 @@
                     <a class="nav-link collapsed" href="/riwayat">
                         <i class="bi bi-card-checklist"></i>
                         <span>Riwayat</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/keluhan">
+                        <i class="bi bi-card-checklist"></i>
+                        <span>Keluhan</span>
                     </a>
                 </li>
                 <li class="nav-item">

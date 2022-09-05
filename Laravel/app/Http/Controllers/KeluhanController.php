@@ -51,6 +51,7 @@ class KeluhanController extends Controller
         $keluhan->keluhan = $isi;
 
         $keluhan->save();
+        return redirect('/');
     }
 
     /**

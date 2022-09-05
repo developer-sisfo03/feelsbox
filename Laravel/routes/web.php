@@ -21,7 +21,6 @@ use App\Http\Controllers\voucherController;
 use App\Http\Controllers\IndexAdminController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\ReviewController;
-use App\Http\Middleware\Psikolog;
 
 /*
 |--------------------------------------------------------------------------

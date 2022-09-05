@@ -14,13 +14,13 @@ class IndexAdminController extends Controller
         $data = [];
 
         // ambil data konsultasi serta urutkan berdasarkan status 
-        $konsultasi = Konsultasi::orderBy('status', 'asc')->get();
+        $konsultasi = Konsultasi::orderBy('status', 'asc')->paginate(5);
 
         foreach($konsultasi as $kons){
             $kons->client_id = User::where('id', $kons->client_id)->first();
             $kons->psikolog_id = User::where('id', $kons->psikolog_id)->first();
         }
-        return $konsultasi;
+        // return $konsultasi;
 
         return view('admin.index', compact('konsultasi'));
     }

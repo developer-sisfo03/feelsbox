@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use App\Models\konsultasi;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\GoogleCalenderController;
+
+use App\Models\konsultasi;
+use App\Models\User;
+use App\Models\jadwalPsikolog;
 
 class BookingController extends Controller
 {
@@ -53,6 +55,10 @@ class BookingController extends Controller
             'phone' => $user->phone,
         ])->json();
 
+        // hapus data pada jadwal psikolog yang sudah di pesan
+        $jadwal = jadwalPsikolog::where('user_id', $request->psikolog_id)->where('tanggal', $request->tanggal)->where('jam', $request->jam)->first();
+        $jadwal->delete();
+    
         return view('user.success-booking', compact('id_pemesanan'));
 
     }
@@ -81,6 +87,22 @@ class BookingController extends Controller
             'tanggal' => $konsultasi->tanggal,
             'link' => $konsultasi->link,
         ])->json();
+
+        return redirect()->back();
+    }
+
+    public function destroy(Request $request){
+        $id = $request->id;
+
+        $konsultasi = konsultasi::where('id_pemesanan', $id)->first();
+
+        $jadwalPsikolog = new jadwalPsikolog;
+        $jadwalPsikolog->user_id = $konsultasi->psikolog_id;
+        $jadwalPsikolog->tanggal = $konsultasi->tanggal;
+        $jadwalPsikolog->jam = $konsultasi->waktu;
+        $jadwalPsikolog->save();
+
+        $konsultasi->delete();
 
         return redirect()->back();
     }

@@ -175,7 +175,7 @@ class TesMentalController extends Controller
     public function update(UpdatetesMentalRequest $request, tesMental $tesMental)
     {
         $tesMental->update($request->all());
-        return redirect('admin/test-mental')->with('success', 'Data berhasil diubah');
+        return redirect()->back()->with('success', 'Data berhasil diubah');
     }
 
     /**
