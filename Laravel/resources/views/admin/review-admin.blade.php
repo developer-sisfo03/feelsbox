@@ -1,4 +1,4 @@
-@extends('layouts.psikolog')
+@extends('layouts.admin')
 @section('content')
 
     {{-- modal --}}

@@ -41,25 +41,39 @@ class ReviewController extends Controller
     public function showReview()
     {
         $id = auth()->user()->id;
-        $konsultasi = Konsultasi::where('psikolog_id', $id)->where('status', 'ongoing')->with('review')->get();
+        $reviews = Konsultasi::where('psikolog_id', $id)->where('status', 'ongoing')->with('review')->get();
 
-        $reviews = [];
-        foreach($konsultasi as $k) {
-            if($k->tanggal == date('Y-m-d') && $k->waktu >= date('H:i:s')) {
-                $review[] = $k;
-            }else if($k->tanggal < date('Y-m-d')) {
-                $reviews[] = $k;
-            }
-        }
+        $datas = [];
 
         foreach($reviews as $r) {
             $r->client_id = User::where('id', $r->client_id)->first();
             $r->psikolog_id = User::where('id', $r->psikolog_id)->first();
+
+           if($r->review->isNotEmpty()) {
+                $datas[] = $r;
+           }
         }
-        
-        return view('psikolog.review-psikolog', compact('reviews'));
+        // return $datas;
+        return view('psikolog.review-psikolog', compact('datas'));
     }
 
+    public function showReviewForAdmin()
+    {
+        $reviews = Konsultasi::where('status', 'ongoing')->with('review')->get();
+
+        $datas = [];
+
+        foreach($reviews as $r) {
+            $r->client_id = User::where('id', $r->client_id)->first();
+            $r->psikolog_id = User::where('id', $r->psikolog_id)->first();
+
+           if($r->review->isNotEmpty()) {
+                $datas[] = $r;
+           }
+        }
+        // return $datas;
+        return view('admin.review-admin', compact('datas'));
+    }
 
     public function getReview(Request $request){
         $review = Review::where('konsultasi_id', $request->id)->first();

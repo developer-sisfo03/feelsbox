@@ -106,11 +106,17 @@
                         <i class="bi bi-card-checklist"></i>
                         <span>Hasil Tes</span>
                     </a>
-                </li
+                </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="/psikolog/appointment">
                         <i class="bi bi-card-checklist"></i>
                         <span>Appointment</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/psikolog/review">
+                        <i class="bi bi-card-checklist"></i>
+                        <span>Review</span>
                     </a>
                 </li>
                 <li class="nav-item">
