@@ -164,7 +164,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Recent Sales -->
+                            <section class="section dashboard">
+                <div class="row">
                     <!-- Left side columns -->
                     <div class="col-lg-14">
                         <div class="row">
@@ -174,45 +175,62 @@
                                 <h5 class="card-title">Jumlah Konsultasi</h5>
 
                                 <!-- Area Chart -->
-                                <canvas id="myChart"></canvas>
+                                <div id="areaChart"></div>
+
                                 <script>
-                                    const labels = [
-                                        'January',
-                                        'February',
-                                        'March',
-                                        'April',
-                                        'May',
-                                        'June',
-                                    ];
-
-                                    const data = {
-                                        labels: labels,
-                                        datasets: [{
-                                        label: 'My First dataset',
-                                        backgroundColor: 'rgb(255, 99, 132)',
-                                        borderColor: 'rgb(255, 99, 132)',
-                                        data: [0, 10, 5, 2, 20, 30, 45],
-                                        }]
-                                    };
-
-                                    const config = {
-                                    type: 'bar',
-                                    data: data,
-                                    options: {
-                                        scales: {
-                                        y: {
-                                            beginAtZero: true
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                    const series = {
+                                        "monthDataSeries1": {
+                                        "prices": [
+                                        @foreach($dataKonsultasi as $konsultasi)
+                                                {{$konsultasi}},
+                                        @endforeach
+                                        ]
+                                        ,
+                                        "dates": [
+                                            @foreach($tanggalKonsultasi as $konsultasi)
+                                                "{{$konsultasi}}",
+                                            @endforeach
+                                        ],
+                                        },
+                                    }
+                                    new ApexCharts(document.querySelector("#areaChart"), {
+                                        series: [{
+                                        name: "STOCK ABC",
+                                        data: series.monthDataSeries1.prices
+                                        }],
+                                        chart: {
+                                        type: 'area',
+                                        height: 350,
+                                        zoom: {
+                                            enabled: false
                                         }
+                                        },
+                                        dataLabels: {
+                                        enabled: false
+                                        },
+                                        stroke: {
+                                        curve: 'straight'
+                                        },
+                                        subtitle: {
+                                        text: '',
+                                        align: 'left'
+                                        },
+                                        labels: series.monthDataSeries1.dates,
+                                        xaxis: {
+                                        type: 'datetime',
+                                        },
+                                        yaxis: {
+                                        opposite: true
+                                        },
+                                        legend: {
+                                        horizontalAlign: 'left'
                                         }
-                                    },
-                                    };
-                                    </script>
-                                    <script>
-                                    const myChart = new Chart(
-                                        document.getElementById('myChart'),
-                                        config
-                                    );
-                                    </script>
+                                    }).render();
+                                    });
+                                </script>
+                                <!-- End Area Chart -->
+
                                 </div>
                             </div>
                             </div>
@@ -229,7 +247,7 @@
                                         echarts.init(document.querySelector("#barChart")).setOption({
                                             xAxis: {
                                             type: 'category',
-                                            data: ['13-17', '18-22', '23-27']
+                                            data: ['15-18', '21-25', '23-27']
                                             },
                                             yAxis: {
                                             type: 'value'
@@ -256,7 +274,11 @@
                                     <script>
                                     document.addEventListener("DOMContentLoaded", () => {
                                         new ApexCharts(document.querySelector("#pieChart"), {
-                                        series: [44, 55, 13],
+                                        series: [
+                                            @foreach ($jenisKelamin as $jk)
+                                                {{$jk}},                                                 
+                                            @endforeach
+                                        ],
                                         chart: {
                                             height: 350,
                                             type: "pie",
@@ -277,6 +299,182 @@
                                 </div>
                             </div>                    
                                                 
+
+                            
+                            <!-- Recent Sales -->
+                            <div class="col-12">
+                                <div class="card recent-sales overflow-auto">
+                                    <div class="filter">
+                                        <a
+                                            class="icon"
+                                            href="#"
+                                            data-bs-toggle="dropdown"
+                                            ><i class="bi bi-three-dots"></i
+                                        ></a>
+                                        <ul
+                                            class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
+                                        >
+                                            <li
+                                                class="dropdown-header text-start"
+                                            >
+                                                <h6>Filter</h6>
+                                            </li>
+
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Today</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >This Month</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >This Year</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            Recent Sales <span>| Today</span>
+                                        </h5>
+
+                                        <table
+                                            class="table table-borderless datatable"
+                                        >
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">
+                                                        Customer
+                                                    </th>
+                                                    <th scope="col">Product</th>
+                                                    <th scope="col">Price</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <a href="#">#2457</a>
+                                                    </th>
+                                                    <td>Brandon Jacob</td>
+                                                    <td>
+                                                        <a
+                                                            href="#"
+                                                            class="text-primary"
+                                                            >At praesentium
+                                                            minu</a
+                                                        >
+                                                    </td>
+                                                    <td>$64</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-success"
+                                                            >Approved</span
+                                                        >
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <a href="#">#2147</a>
+                                                    </th>
+                                                    <td>Bridie Kessler</td>
+                                                    <td>
+                                                        <a
+                                                            href="#"
+                                                            class="text-primary"
+                                                            >Blanditiis dolor
+                                                            omnis similique</a
+                                                        >
+                                                    </td>
+                                                    <td>$47</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-warning"
+                                                            >Pending</span
+                                                        >
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <a href="#">#2049</a>
+                                                    </th>
+                                                    <td>Ashleigh Langosh</td>
+                                                    <td>
+                                                        <a
+                                                            href="#"
+                                                            class="text-primary"
+                                                            >At recusandae
+                                                            consectetur</a
+                                                        >
+                                                    </td>
+                                                    <td>$147</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-success"
+                                                            >Approved</span
+                                                        >
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <a href="#">#2644</a>
+                                                    </th>
+                                                    <td>Angus Grady</td>
+                                                    <td>
+                                                        <a
+                                                            href="#"
+                                                            class="text-primar"
+                                                            >Ut voluptatem id
+                                                            earum et</a
+                                                        >
+                                                    </td>
+                                                    <td>$67</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-danger"
+                                                            >Rejected</span
+                                                        >
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <a href="#">#2644</a>
+                                                    </th>
+                                                    <td>Raheem Lehner</td>
+                                                    <td>
+                                                        <a
+                                                            href="#"
+                                                            class="text-primary"
+                                                            >Sunt similique
+                                                            distinctio</a
+                                                        >
+                                                    </td>
+                                                    <td>$165</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-success"
+                                                            >Approved</span
+                                                        >
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Recent Sales -->
                         </div>
                     </div>
                     <!-- End Left side columns -->
@@ -321,4 +519,3 @@
         <!-- Template Main JS File -->
         <script src="assets-admin/js/main.js"></script>
     </body>
-

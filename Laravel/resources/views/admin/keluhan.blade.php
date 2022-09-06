@@ -14,7 +14,6 @@
             <div class="line"></div>
             <p>{{$k->keluhan}}</p>
         </div>
-        <button>X</button>
     </div>
     @endforeach
     </div>

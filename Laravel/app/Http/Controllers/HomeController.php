@@ -5,6 +5,9 @@ use App\Models\landingPage;
 use App\Models\testimoni;
 use App\Models\psikolog;
 use Illuminate\Http\Request;
+use App\Models\konsultasi;
+use App\Models\user;
+use App\Models\hasilTes;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,10 @@ class HomeController extends Controller
         $landingPages = landingPage::all()[0];
         $testimoni = testimoni::with('user')->get();
         $psikolog = psikolog::with('user')->get();
-        return view('home', compact('landingPages','testimoni','psikolog'));
+        $totalKonsultasi = konsultasi::count();
+        $totalPsikolog = user::where('role', 'psikolog')->count();
+        $totalTes  =  hasilTes::count();
+
+        return view('home', compact('landingPages','testimoni','psikolog','totalKonsultasi','totalPsikolog', 'totalTes'));
     }
 }

@@ -18,7 +18,7 @@ class KeluhanController extends Controller
         // keluhan dengan user
         $keluhans = keluhan::with('user')->get();
         if(auth()->user()->role == 'admin'){
-            return view('admin.keluhan.index-keluhan', compact('keluhans'));
+            return view('admin.keluhan', compact('keluhans'));
         }else{
             return view('user.keluhan', compact('keluhans'));
         }

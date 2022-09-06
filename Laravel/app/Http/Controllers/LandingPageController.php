@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\landingPage;
+use App\Models\konsultasi;
+use App\Models\user;
+
 use App\Http\Requests\StorelandingPageRequest;
 use App\Http\Requests\UpdatelandingPageRequest;
 
@@ -16,13 +19,16 @@ class LandingPageController extends Controller
     public function index()
     {
         $landingPages = landingPage::all()[0];
+        $totalKonsultasi = konsultasi::count();
+        $totalPsikolog = user::where('role', 'psikolog')->count();
+
         try {
             if(auth()->user()->role == 'admin'){
                 return view('admin.landing-page.index-landing-page', compact('landingPages'));
             }
         }
         catch (\Exception $e) {
-            return view('about-us', compact('landingPages'));
+            return view('about-us', compact('landingPages', 'totalKonsultasi', 'totalPsikolog'));
         }
     }
 
