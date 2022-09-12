@@ -1,0 +1,33 @@
+body{
+    background-color: #ebe6e6 !important;
+    width: 100% !important;
+    margin: 0;
+}
+
+/* .container{
+    margin: 0 100px !important; 
+} */
+
+.teams{
+    margin-top: 20px !important;
+}
+
+.tim{
+    margin-top: 20px !important;
+}
+
+.row > div{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.card img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* .container{
+    background-color: red;
+}  */

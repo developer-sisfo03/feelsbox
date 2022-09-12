@@ -21,6 +21,7 @@ use App\Http\Controllers\voucherController;
 use App\Http\Controllers\IndexAdminController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\TeamsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,9 @@ Route::resource('/booking', PsikologController::class);
 Route::get('/jadwal-psikolog', [JadwalPsikologController::class, 'jadwal'])->name('jadwal-psikolog');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/teams', [HomeController::class, 'teams'])->name('teams');
+Route::get('/teams/{nama}', [HomeController::class, 'tes'])->name('teams');
 
 Route::get('/token', function () {
     return csrf_token(); 
@@ -104,6 +108,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/admin/booking/{id}/delete', [BookingController::class, 'destroy'])->name('booking-delete');
 
         Route::get('admin/review', [ReviewController::class, 'showReviewForAdmin'])->name('review-psikolog');
+
+        Route::get('admin/teams', [TeamsController::class, 'index'])->name('teams');
     });
     
 

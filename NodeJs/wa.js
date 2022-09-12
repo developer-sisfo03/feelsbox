@@ -20,7 +20,6 @@ client.on('ready', () => {
 });
 
 client.on('message', async msg => {
-        console.log(msg);
         const args = msg.body.split(' ');
         const command = args[0].toLowerCase();
 

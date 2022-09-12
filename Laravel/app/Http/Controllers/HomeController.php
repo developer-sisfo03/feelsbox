@@ -32,4 +32,12 @@ class HomeController extends Controller
 
         return view('home', compact('landingPages','testimoni','psikolog','totalKonsultasi','totalPsikolog', 'totalTes'));
     }
+
+    public function teams(){
+        return view('teams');
+    }
+
+    public function tes(){
+        return view('team-detail');
+    }
 }

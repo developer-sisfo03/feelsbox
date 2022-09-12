@@ -7,8 +7,8 @@ const {selesaiKonsultasi} = require('./functions/selesaiKonsultasi');
 
 selesaiKonsultasi();
 
-// const {main} = require('./wa');
-// main();
+const {main} = require('./wa');
+main();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');

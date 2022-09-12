@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\team;
-use App\Http\Requests\StoreteamRequest;
-use App\Http\Requests\UpdateteamRequest;
+use App\Models\Teams;
+use App\Http\Requests\StoreTeamsRequest;
+use App\Http\Requests\UpdateTeamsRequest;
 
-class TeamController extends Controller
+class TeamsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.index-teams');
     }
 
     /**
@@ -31,10 +31,10 @@ class TeamController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreteamRequest  $request
+     * @param  \App\Http\Requests\StoreTeamsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreteamRequest $request)
+    public function store(StoreTeamsRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class TeamController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\team  $team
+     * @param  \App\Models\Teams  $teams
      * @return \Illuminate\Http\Response
      */
-    public function show(team $team)
+    public function show(Teams $teams)
     {
         //
     }
@@ -53,10 +53,10 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\team  $team
+     * @param  \App\Models\Teams  $teams
      * @return \Illuminate\Http\Response
      */
-    public function edit(team $team)
+    public function edit(Teams $teams)
     {
         //
     }
@@ -64,11 +64,11 @@ class TeamController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateteamRequest  $request
-     * @param  \App\Models\team  $team
+     * @param  \App\Http\Requests\UpdateTeamsRequest  $request
+     * @param  \App\Models\Teams  $teams
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateteamRequest $request, team $team)
+    public function update(UpdateTeamsRequest $request, Teams $teams)
     {
         //
     }
@@ -76,10 +76,10 @@ class TeamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\team  $team
+     * @param  \App\Models\Teams  $teams
      * @return \Illuminate\Http\Response
      */
-    public function destroy(team $team)
+    public function destroy(Teams $teams)
     {
         //
     }
