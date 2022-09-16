@@ -39,6 +39,56 @@
             </div>
             <div>
                 <div class="container-fluid">
+                <div id="team-wrapper3">
+                        <div class="card-team">
+                            <div class="image">
+                                <img src="../img/people.jpg" class="responsive"alt="">
+                                
+                            </div>
+                            <div class="description-wrapper">
+                                <div class="team-desc">
+                                    <p class="name-card pt-2">Wahyudi Khoeris</p>
+                                    <p class="role">CEO</p>
+                                </div>
+                                <div class="social pt-2">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-github"></i>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="card-team">
+                            <div class="image">
+                                <img src="../img/people.jpg" class="responsive"alt="">
+                                
+                            </div>
+                            <div class="description-wrapper">
+                                <div class="team-desc">
+                                    <p class="name-card pt-2">Wahyudi Khoeris</p>
+                                    <p class="role">CEO</p>
+                                </div>
+                                <div class="social pt-2">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-github"></i>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="card-team">
+                            <div class="image">
+                                <img src="../img/people.jpg" class="responsive"alt="">
+                                
+                            </div>
+                            <div class="description-wrapper">
+                                <div class="team-desc">
+                                    <p class="name-card pt-2">Wahyudi Khoeris</p>
+                                    <p class="role">CEO</p>
+                                </div>
+                                <div class="social pt-2">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-github"></i>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
                     <div class="row" id="team-wrapper2">
                         <div class="card-team ">
                             <img src="../img/people.jpg" class="responsive"alt="">
@@ -143,46 +193,7 @@
                                     <i class="bi bi-github"></i>
                                 </div>
                             </div>
-                        </div>       
-                        <div class="card-team ">
-                            <img src="../img/people.jpg" class="responsive"alt="">
-                            <div class="description-wrapper">
-                                <div class="team-desc">
-                                    <p class="name-card pt-2">Wahyudi Khoeris</p>
-                                    <p class="role">CEO</p>
-                                </div>
-                                <div class="social pt-2">
-                                    <i class="bi bi-instagram"></i>
-                                    <i class="bi bi-github"></i>
-                                </div>
-                            </div>
-                        </div>       
-                        <div class="card-team ">
-                            <img src="../img/people.jpg" class="responsive"alt="">
-                            <div class="description-wrapper">
-                                <div class="team-desc">
-                                    <p class="name-card pt-2">Wahyudi Khoeris</p>
-                                    <p class="role">CEO</p>
-                                </div>
-                                <div class="social pt-2">
-                                    <i class="bi bi-instagram"></i>
-                                    <i class="bi bi-github"></i>
-                                </div>
-                            </div>
-                        </div>       
-                        <div class="card-team ">
-                            <img src="../img/people.jpg" class="responsive"alt="">
-                            <div class="description-wrapper">
-                                <div class="team-desc">
-                                    <p class="name-card pt-2">Wahyudi Khoeris</p>
-                                    <p class="role">CEO</p>
-                                </div>
-                                <div class="social pt-2">
-                                    <i class="bi bi-instagram"></i>
-                                    <i class="bi bi-github"></i>
-                                </div>
-                            </div>
-                        </div>              
+                        </div>           
                     </div>   
                  </div>
             </div>

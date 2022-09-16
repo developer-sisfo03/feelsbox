@@ -91,6 +91,14 @@ body.fade{
     padding: 0 20px 20px 20px;
     position: relative;
     column-gap: 32px;
+}   
+#team-wrapper3{
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px 20px 20px;
+    position: relative;
+    column-gap: 32px;
+    justify-content: center;
 }
 .description-wrapper{
     display: flex;
@@ -136,16 +144,27 @@ body.fade{
     #team-wrapper2{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-    }
+    }   
+    #team-wrapper3{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }   
 }
 @media screen and (max-width: 750px) {
     .team-grid{
         display: grid;
         grid-template-columns: 1fr;
     }
+    #team-wrapper3{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 40px;
+        row-gap: 16px;
+    }   
     #team-wrapper2{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        row-gap: 16px;
     }
 }
 .card-team:hover{
