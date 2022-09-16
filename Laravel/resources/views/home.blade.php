@@ -21,9 +21,10 @@
          <!-- ======= About Us Section ======= -->
          <section id="about" class="about-section">
                 <div class="about-container row" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>About Us</h2>
-                        <p>{!! $landingPages->about !!}.</p>
+                    <div class="header-about container">
+                        <p>Get to know with us</p>
+                        <h2>Giving you the best solution <br> for your mental health</h2>
+                        
                         <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
                     </div>
                     <div class="about-parent">
@@ -31,7 +32,9 @@
                             <img src="{{asset('img/about.jpg')}}" class="responsive"  alt="">
                         </div>
                         <div class="content-wrapper about-right" data-aos="fade-left">
-                            <div class="about-us-content">
+                            <h1>ABOUT US</h1>
+                            <p>{!! $landingPages->about !!}. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolorum quidem quae, quas similique vero! Amet soluta itaque officiis at.</p>
+                            <!-- <div class="about-us-content">
                                 <div class="about-us-child-wrapper">
                                     <h4>Visi</h4>
                                     <p class="font-italic">{!! $landingPages->visi !!}</p>
@@ -50,7 +53,7 @@
                                 </div>
 
                                 <!-- <a href="#about" class="btn btn-primary btn-lg" tabindex="-1" role="button">Primary link</a> -->
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

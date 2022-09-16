@@ -1,3 +1,71 @@
-h1 {
-    color: red;
+.responsive{
+    height: auto;
+    width: 100%;
+    max-width: 300px;
+}
+.images{
+    position: relative;
+    animation-name: fade-in-left;
+    animation-duration: 2s;
+}
+.images img{
+    border-radius: 14px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.text-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation-name: fade-in-right;
+    animation-duration: 2s;
+    position: relative;
+}
+
+.role{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.role h5{
+    color: #9a9a9a;
+}
+.text-desc h1{
+    color: black;
+    font-weight: 700;
+}
+.text-desc p{
+    font-weight: 400;
+    font-size: 14px;
+}
+.social i{
+    cursor: pointer;
+    padding: 11px 14px;
+    height: auto;
+    border: 0.5px solid rgb(204, 203, 203);
+    border-radius: 100%;
+}
+.social i:hover{
+    transition: all 0.2s ease-in;
+    color: white;
+    background-color: #3FBBC0;
+}
+
+@keyframes fade-in-left {
+    0%{opacity: 0;left: -100px;}
+    100%{opacity: 1;left: 0;}
+}
+@keyframes fade-in-right {
+    0%{opacity: 0;right: -100px;}
+    100%{opacity: 1;right: 0;}
+}
+@media screen and (max-width: 576px) {
+    .text-desc{
+        padding-top: 32px;
+    }
+    .social{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        column-gap: 8px;
+    }
 }

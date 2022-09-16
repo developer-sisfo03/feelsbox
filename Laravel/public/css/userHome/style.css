@@ -1,0 +1,83 @@
+body{
+    padding: 20px;
+}
+.greet{
+    position: relative;
+    font-size: 22px;
+    font-weight: 800;
+    animation-name: slide-right;
+    animation-duration: 3s;
+    
+}
+.card-title{
+    font-size: 20px;
+}
+.description{
+    padding: 32px;
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+@keyframes slide-right {
+    0%{left:-100px; opacity: 0;}
+    50%{left:0px}
+   
+}
+@keyframes fade-in {
+    0%{opacity: 0;bottom: -60px; }
+    50%{opacity: 1; bottom: 0;}
+}
+.total-control{
+    padding: 32px;
+    animation-name: fade-in;
+    animation-duration:4s ;
+}
+.recent-test{
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+    animation-name: fade-in ;
+    animation-duration: 3s;
+}
+.responsive-img{
+    height: auto;
+    width: 100%;
+}
+.score{
+    position: relative;
+    font-size: 48px;
+    font-weight: 600;
+}
+.result{
+    font-weight: 600;
+    color: #8c8c8c;
+}
+@media screen and (min-width: 576px) {
+    .description{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }   
+    .description-content{
+        display: flex;
+        flex-direction: column;
+    }
+    .tablet{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+    .greet{
+        position: relative;
+        left: 40px;
+    }
+}
+@media screen and (min-width:975px) {
+    .description{
+        padding: 0px 32px 0px 32px;
+    }
+    .greet{
+        left: 0;
+    }
+}
