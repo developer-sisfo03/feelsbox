@@ -9,7 +9,7 @@
         <!-- ======= Hero Section ======= -->
         <section id="hero">
             <!-- Slide 1 -->
-            <div class="carousel-item active" style="background-image: url('img/background.jpg')">
+            <div class="carousel-item active" style="background-image: url('img/background.jpg');">
                 <div class="container" data-aos="fade-up">
                     <h2>Welcome to <span>Medicio</span></h2>
                     <p>Kami disini hadir untuk membantu kalian semua untuk menjaga kesehatan mental kalian. Ingin tahu
