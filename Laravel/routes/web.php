@@ -43,7 +43,30 @@ Route::get('/jadwal-psikolog', [JadwalPsikologController::class, 'jadwal'])->nam
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/teams', [HomeController::class, 'teams'])->name('teams');
-Route::get('/teams/{nama}', [HomeController::class, 'tes'])->name('teams');
+
+// ==================== teams =-=======================
+
+// paling atas
+Route::get('/team/muhammad-fathi-rabbani', [HomeController::class, 'fathi']);
+
+// ==== barisan pertama =====
+Route::get('/team/irsa-pramesti', [HomeController::class, 'irsa']);
+Route::get('/team/wahyudi-khoeris-salimi', [HomeController::class, 'wahyu']);
+Route::get('/team/muhammad-nafianto', [HomeController::class, 'nafi']);
+Route::get('/team/mahardika-maulana-al-mahdi-handoko', [HomeController::class, 'dika']);
+
+// ==== barisan kedua =====
+Route::get('/team/neta-aulya-kurnia-ningrum', [HomeController::class, 'neta']);
+Route::get('/team/sultan-hafiz-alexander', [HomeController::class, 'sultan']);
+Route::get('/team/rafly-yogaswara', [HomeController::class, 'rafly']);
+Route::get('team/muhammad-zaidan-rafii', [HomeController::class, 'rafii']);
+
+// ==== barisan ketiga =====
+Route::get('/team/adib-muhyi-asa', [HomeController::class, 'adib']);
+Route::get('/team/soya-karerra', [HomeController::class, 'soya']);
+Route::get('/team/tasya-maeza-chiqamara', [HomeController::class, 'tasya']);
+Route::get('/team/shah-jehan-basrul', [HomeController::class, 'jeje']);
+
 
 Route::get('/token', function () {
     return csrf_token(); 

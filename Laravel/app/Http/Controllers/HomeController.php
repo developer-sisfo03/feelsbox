@@ -40,4 +40,56 @@ class HomeController extends Controller
     public function tes(){
         return view('team-detail');
     }
+
+    public function fathi(){
+        return view('teams.fathi');
+    }
+
+    public function irsa(){
+        return view('teams.irsa');
+    }
+
+    public function neta(){
+        return view('teams.neta');
+    }
+
+    public function rafly(){
+        return view('teams.rafly');
+    }
+
+    public function soya(){
+        return view('teams.soya');
+    }
+
+    public function wahyu(){
+        return view('teams.wahyu');
+    }
+
+    public function tasya(){
+        return view('teams.tasya');
+    }
+
+    public function nafi(){
+        return view('teams.nafi');
+    }
+
+    public function adib(){
+        return view('teams.adib');
+    }
+
+    public function dika(){
+        return view('teams.dika');
+    }
+
+    public function rafii(){
+        return view('teams.rafii');
+    }
+
+    public function jeje(){
+        return view('teams.jeje');
+    }
+
+    public function sultan(){
+        return view('teams.sultan');
+    }
 }
