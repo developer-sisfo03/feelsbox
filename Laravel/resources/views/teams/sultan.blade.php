@@ -15,7 +15,7 @@
                 <img src="../img/teams/sultan.png" alt="team1" class="responsive">
             </div>
             <div class="col-sm-6 text-desc">
-                <h1>Sultan Hafiz Alexander</h1>
+                <h1>Sultan Hafizh Alexander</h1>
                 <div class="role">
                   <h5>Senior Frontend Developer</h5>
                 </div>
