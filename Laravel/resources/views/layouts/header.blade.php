@@ -41,7 +41,7 @@
     <header id="header" >
         <div class="container d-flex align-items-center">
 
-            <a href="index.html" class="logo me-auto"><img src="{{asset('img/logo.png')}}" alt=""></a>
+            <a href="index.html" class="logo me-auto"><img src="{{asset('img/logo.png')}}" alt="LOGO" class="img-fluid" style=""></a>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <h1 class="logo me-auto"><a href="index.html">Medicio</a></h1> -->
             <nav id="navbar" class="navbar order-last order-lg-0">
@@ -53,6 +53,6 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-            <a href="/login" class="login-btn scrollto"><span class="d-none d-md-inline">Login</a>
+            <a href="/login" class="login-btn scrollto"><span class="">Login</span></a>
         </div>
     </header><!-- End Header -->

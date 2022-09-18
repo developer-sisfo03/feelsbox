@@ -179,7 +179,7 @@ body {
     font-size: 14px;
     display: inline-block;
   }
-  .logint-btn:hover {
+  .login-btn:hover {
     background: #65c9cd;
     color: #fff;
   }
