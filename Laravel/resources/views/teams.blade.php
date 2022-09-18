@@ -36,7 +36,7 @@
             </div>
             <div>
                 <div class="container-fluid">
-                <div id="team-wrapper3">                       
+                <div>                       
                     <div class="row" id="team-wrapper2">
                         <div class="card-team">
                             <a href="team/muhammad-nafianto">
