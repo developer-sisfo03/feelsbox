@@ -19,7 +19,7 @@
                 <div class="role">
                   <h5>Senior Frontend Developer</h5>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quod, et sapiente cumque laudantium earum dolorem facilis reprehenderit vero! Autem, quae vitae perferendis accusamus ratione facere asperiores quam assumenda repellendus.</p>
+                <p>Hai #feelsSquad! Saya Sultan, Senior Frontend Developer di Feelsbox. Saya bertanggung jawab dalam membuat user interface dan mengimplementasikan design ke dalam webapp maupun aplikasi. Let's build our mental shield!</p>
                 <div class="social pt-5">
                   <a href="mailto:"><i class="bi bi-envelope-fill"></i></a>
                   <a href=""><i class="bi bi-linkedin"></i></a>
