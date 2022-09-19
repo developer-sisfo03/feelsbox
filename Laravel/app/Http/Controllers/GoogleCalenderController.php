@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class GoogleCalenderController extends Controller
 {
 
-    private $calendarId = 'ttj3fh1pdlnp1qhtni1hhc132k@group.calendar.google.com';
+    private $calendarId = '71f3e28076655e8a5ba887ceafcf2c755c83065a4269121105cdc679f8352214@group.calendar.google.com';
     
     function getClient()
     {
