@@ -22,6 +22,7 @@ use App\Http\Controllers\IndexAdminController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -144,9 +145,7 @@ Route::group(['middleware' => 'auth'], function () {
             return view('partnership');
         })->name('partnership');
 
-        Route::get('/user', function () {
-            return view('user.index-user');
-        })->name('user');
+        Route::get('/user', [UserController::class, 'index'])->name('user');
 
         Route::resource('/tes-mental', TesMentalController::class);
         Route::resource('/keluhan', KeluhanController::class);

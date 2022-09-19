@@ -247,13 +247,17 @@
                                         echarts.init(document.querySelector("#barChart")).setOption({
                                             xAxis: {
                                             type: 'category',
-                                            data: ['15-18', '21-25', '23-27']
+                                            data: ['12-15', '16-18','19-40', '40-60', "60++"]
                                             },
                                             yAxis: {
                                             type: 'value'
                                             },
                                             series: [{
-                                            data: [100, 59, 30],
+                                            data: [
+                                                @foreach($usia as $u)
+                                                    {{$u}},
+                                                @endforeach
+                                            ],
                                             type: 'bar'
                                             }]
                                         });

@@ -78,6 +78,36 @@ class IndexAdminController extends Controller
         }
         // return $konsultasi;
 
-        return view('admin.index', compact('konsultasi', 'tanggalKonsultasi', 'dataKonsultasi', 'jenisKelamin'));
+        // hitung jumlah total usia client 
+        // [12-15, 16-18,19-40, 40-60, 60++]
+        $remajaAwal = 0;
+        $remajaAkhir = 0;
+        $dewasaAwal = 0;
+        $dewasaAkhir = 0;
+        $lansia = 0;
+
+        $dataUsia = User::all();
+        $usia = [];
+
+        foreach ($dataUsia as $key => $value) {
+            $dataUsia[$key] = $value->tanggal_lahir;
+            $dataUsia[$key] = date_diff(date_create($dataUsia[$key]), date_create('today'))->y;
+
+            if($dataUsia[$key] >= 12 && $dataUsia[$key] <= 15){
+                $remajaAwal++;
+            }elseif($dataUsia[$key] >= 16 && $dataUsia[$key] <= 18){
+                $remajaAkhir++;
+            }elseif($dataUsia[$key] >= 19 && $dataUsia[$key] <= 40){
+                $dewasaAwal++;
+            }elseif($dataUsia[$key] >= 41 && $dataUsia[$key] <= 60){
+                $dewasaAkhir++;
+            }else{
+                $lansia++;
+            }
+        }
+
+        $usia = array_merge([$remajaAwal], [$remajaAkhir], [$dewasaAwal], [$dewasaAkhir], [$lansia]);
+
+        return view('admin.index', compact('konsultasi', 'tanggalKonsultasi', 'dataKonsultasi', 'jenisKelamin', 'usia'));
     }
 }

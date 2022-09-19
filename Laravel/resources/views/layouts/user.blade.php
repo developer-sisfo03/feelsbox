@@ -180,11 +180,12 @@
                             href="#"
                             data-bs-toggle="dropdown"
                         >
-                            <img
-                                src="../../../../assets-admin/img/profile-img.jpg"
-                                alt="Profile"
-                                class="rounded-circle"
-                            />
+
+                             @if ($user->image != null)
+                                <img width="50px" class="rounded-circle"  src="{{asset('storage/'.$user->image)}}" alt="Profile">
+                            @else
+                                <img width="50px" class="rounded-circle" src="{{asset('storage/profile/default.png')}}" alt="Profile">
+                            @endif
                             <span class="d-none d-md-block dropdown-toggle ps-2">{{auth()->user()->name}}</span
                             > </a
                         ><!-- End Profile Iamge Icon -->

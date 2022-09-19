@@ -17,7 +17,7 @@
     <div class="parent">
         <div class="top">
             @if($hasil->user->image != null)
-                <img src="{{$hasil->$user->image}}" alt="" srcset="" class="responsive">
+                <img src="/storage/{{$hasil->user->image}}" alt="" srcset="" class="responsive">
             @else
                 <img src="{{asset('storage/profile/default.png')}}" alt="" srcset="" class="responsive">
             @endif
