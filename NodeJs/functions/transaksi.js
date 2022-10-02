@@ -1,5 +1,6 @@
 const fs = require('fs');
-const {Konsultasi} = require('../models');
+const models = require('../models');
+
 const { Op } = require("sequelize");
 
 exports.transaksi = async (msg) => {
@@ -8,7 +9,7 @@ exports.transaksi = async (msg) => {
     const id_pemesanan = message[2];
 
     if(message[1] ===  'id_pemesanan'){
-        const konsultasi = await Konsultasi.findOne({
+        const konsultasi = await models.konsultasi.findOne({
             where: {
                 [Op.or]: [{id_pemesanan}]
             }

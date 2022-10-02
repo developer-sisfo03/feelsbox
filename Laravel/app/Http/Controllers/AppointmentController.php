@@ -22,7 +22,7 @@ class AppointmentController extends Controller
         $role = $user->role;
 
         if($role == 'psikolog'){
-            $booking = konsultasi::where('status', 'ongoing')->where('psikolog_id', $id)->get();
+            $booking = konsultasi::where('status', 'onggoing')->where('psikolog_id', $id)->get();
             foreach($booking as $book){
                 $book->client_id = User::where('id', $book->client_id)->first();
                 $book->psikolog_id = User::where('id', $book->psikolog_id)->first();
@@ -31,7 +31,7 @@ class AppointmentController extends Controller
             return view('psikolog.appointment-psikolog', compact('booking'));
 
         }elseif($role == 'user'){
-            $booking = konsultasi::where('status', 'ongoing')->where('client_id', $id)->get();
+            $booking = konsultasi::where('status', 'onggoing')->where('client_id', $id)->get();
             foreach($booking as $book){
                 $book->psikolog_id = User::where('id', $book->psikolog_id)->first();
             }

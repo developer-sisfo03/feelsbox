@@ -1,8 +1,8 @@
-const {Konsultasi} = require('../models');
+const models = require('../models');
 const { Op } = require("sequelize");
 
 exports.selesaiKonsultasi = async () => {
-    const konsultasi = await Konsultasi.findAll()
+    const user = await models.user.findAll();
 
-    console.log(konsultasi);
+    console.log(user);
 }
